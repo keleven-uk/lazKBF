@@ -40,7 +40,7 @@ type
     procedure btnExitClick(Sender: TObject);
     procedure btnKillClick(Sender: TObject);
     procedure btnSearchClick(Sender: TObject);
-    procedure ChckLstBxFilesClick(Sender: TObject);
+    procedure ChckLstBxFilesDblClick(Sender: TObject);
     procedure DrctryEdtRootAcceptDirectory(Sender: TObject; var Value: String);
     procedure FormCreate(Sender: TObject);
     procedure mnuItmAboutClick(Sender: TObject);
@@ -51,6 +51,7 @@ type
     procedure RdGrpSelectClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
+    function  checkATTR(fattr : LongInt): String;
     procedure walkDirectory(dir : string);
     procedure fileFound(FileIterator : TFileIterator);
     procedure deleteFiles;
@@ -152,6 +153,8 @@ begin
   RdGrpSelect.ItemIndex    := 1;     //  default to Select None
   aborting                 := false;
 
+  PopupNotifier1.Visible := false ;
+
   ChckLstBxFiles.Clear;
 end;
 
@@ -166,24 +169,30 @@ begin
   walkDirectory(DrctryEdtRoot.Directory);
 end;
 
-procedure TfrmMain.ChckLstBxFilesClick(Sender: TObject);
+procedure TfrmMain.ChckLstBxFilesDblClick(Sender: TObject);
 VAR
   message : string;
   fname   : string;
   fpos    : integer;
   fsize   : Int64;
+  fdate   : TDateTime;
+  fattr   : LongInt;
 begin
 
-  if ChckLstBxFiles.Items.Count <> 0 then begin  //  noting in list box, so do nothing.
+  if (ChckLstBxFiles.Items.Count <> 0) then begin  //  noting in list box, so do nothing.
     PopupNotifier1.ShowAtPos(100,100) ;
     PopupNotifier1.Title   := 'File Info';
 
     fpos  := ChckLstBxFiles.ItemIndex;
     fname := ChckLstBxFiles.Items.Strings[fpos];
     fsize := fileSize(fname);
+    fdate := FileDateToDateTime(FileAge(fname));
+    fattr := FilegetAttr(fname);
 
     message := format('fileName :: %s. ', [fname]);
     message := message + LineEnding + format('fileSize :: %d bytes.', [fsize]);
+    message := message + LineEnding + format('filedate :: %s',[formatDateTime('dddd mmmm yyyy  hh:nn', fdate)]);
+    message := message + LineEnding + checkATTR(fattr);
 
     if PopupNotifier1.Visible = false then begin
       PopupNotifier1.Text    := message;
@@ -196,6 +205,27 @@ begin
     end;
 
   end;  //  if ChckLstBxFiles.Items.Count = 0
+end;
+
+function TfrmMain.checkATTR(fattr : LongInt): String;
+begin
+
+  if fattr <> -1 then begin
+    If (fattr and faReadOnly)<>0 then
+      checkATTR := 'File is ReadOnly';
+    If (fattr and faHidden)<>0 then
+      checkATTR := 'File is hidden';
+    If (fattr and faSysFile)<>0 then
+      checkATTR := 'File is a system file';
+    If (fattr and faVolumeID)<>0 then
+      checkATTR := 'File is a disk label';
+    If (fattr and faArchive)<>0 then
+      checkATTR := 'File is archive file';
+    If (fattr and faDirectory)<>0 then
+      checkATTR := 'File is a directory';
+  end
+  else
+    checkATTR := '';
 
 end;
 

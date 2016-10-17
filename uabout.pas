@@ -54,7 +54,7 @@ begin
   dskSize := FloatToStrF(DiskSize(0) / 1073741824, ffFixed, 3, 2);
 
   lblLazarusVersion.Caption := format('Built with Lazarus Version :: %s', [lcl_version]);
-  lblKBFversion.Caption     := 'KBF Buld Version :: 4';
+  lblKBFversion.Caption     := 'KBF Buld Version :: 5';
   lblDiskSize.Caption       := ' Disk Free / Size :: ' + dskFree + ' / ' +  dskSize + ' Gbytes'
 end;
 

@@ -248,7 +248,7 @@ object frmMain: TfrmMain
       Top = 0
       Width = 323
       ItemHeight = 0
-      OnClick = ChckLstBxFilesClick
+      OnDblClick = ChckLstBxFilesDblClick
       TabOrder = 0
     end
     object RdGrpSelect: TRadioGroup
