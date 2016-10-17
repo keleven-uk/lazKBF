@@ -8,7 +8,14 @@ The root directory will then be walked - when the kill button becomes available,
 Direction for use ...
 
 1 ... Select the root directory.
-2 ... Wait while the directory is walked - can take some time - sorry.
-3 ... Kill those bothersome files.
+2 ... Select type of files to kill.
+3 ... Wait while the directory is walked - can take some time - sorry.
+4 ... Select which files to kill [either All, None or individually].
+5 ... Kill those bothersome files [see warning below].
 
-The search button allows a re-scan of the chosen directory; say if the choice of files have been altered.
+The clear button allows a rescan of the chosen directory; say if the choice of files have been altered.
+
+
+WARNING
+
+.::. This program permanently deletes files - does not use the recycle bin [I don't know that bit yet]. .::.
