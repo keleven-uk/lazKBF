@@ -258,9 +258,10 @@ object frmMain: TfrmMain
       ClientHeight = 38
       ClientWidth = 221
       TabOrder = 4
+      OnClick = GrpBxRootClick
       object DrctryEdtRoot: TDirectoryEdit
         Left = 6
-        Height = 23
+        Height = 21
         Top = 8
         Width = 184
         OnAcceptDirectory = DrctryEdtRootAcceptDirectory
@@ -310,9 +311,9 @@ object frmMain: TfrmMain
     ClientWidth = 354
     TabOrder = 3
     object ChckLstBxFiles: TCheckListBox
-      Left = 8
+      Left = 16
       Height = 184
-      Top = 0
+      Top = 8
       Width = 323
       ItemHeight = 0
       OnDblClick = ChckLstBxFilesDblClick

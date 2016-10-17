@@ -45,6 +45,7 @@ type
     procedure ChckLstBxFilesDblClick(Sender: TObject);
     procedure DrctryEdtRootAcceptDirectory(Sender: TObject; var Value: String);
     procedure FormCreate(Sender: TObject);
+    procedure GrpBxRootClick(Sender: TObject);
     procedure mnuItmAboutClick(Sender: TObject);
     procedure mnuItmExitClick(Sender: TObject);
     procedure mnuItmHelpClick(Sender: TObject);
@@ -69,6 +70,8 @@ var
   aborting  : Boolean;
   searching : Boolean;  //  true is search being performed.
   filesSize : LongInt;  //  used to hold the total size of all files.
+
+  fileSearch : TFileSearcher;
 implementation
 
 {$R *.lfm}
@@ -82,6 +85,11 @@ begin
   RdGrpSelect.ItemIndex    := 1;     //  default to Select None
   aborting                 := false;
   searching                := false;
+end;
+
+procedure TfrmMain.GrpBxRootClick(Sender: TObject);
+begin
+
 end;
 
 procedure TfrmMain.btnExitClick(Sender: TObject);
@@ -161,6 +169,8 @@ begin
   PpNtfrFiles.Visible := false ;
 
   ChckLstBxFiles.Clear;
+
+  if searching then fileSearch.Free;
 end;
 
 procedure TfrmMain.btnSearchClick(Sender: TObject);
@@ -263,8 +273,7 @@ procedure TfrmMain.walkDirectory(dir : string);
    All files that match a certain pattern are added to filestore, filestore is declared globably..
    The pattern in a chosen file extension - from a combo box.
    Does not check if directory exists.                                         }
-VAR
-  fileSearch : TFileSearcher;
+
 begin
   stsBrInfo.Panels.Items[2].Text:= 'Walking ' + dir + ' now, Sir!' ;
 

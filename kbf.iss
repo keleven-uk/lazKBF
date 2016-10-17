@@ -19,12 +19,16 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={pf}\keleven\KBF_6
+
+;  all source files here
+SourceDir=C:\usr\shed\projects\pascal\kbf
+
+DefaultDirName={pf}\keleven\kbf
 DefaultGroupName={#MyAppName}
-LicenseFile=C:\usr\shed\projects\pascal\kbf\GNU GENERAL PUBLIC LICENSE.txt
-InfoAfterFile=C:\usr\shed\projects\pascal\kbf\help.txt
+LicenseFile=GNU GENERAL PUBLIC LICENSE.txt
+InfoAfterFile=help.txt
 OutputDir=C:\usr\shed\projects\pascal
-OutputBaseFilename=kbf_6
+OutputBaseFilename=kbf
 Compression=lzma
 SolidCompression=yes
 
@@ -35,13 +39,26 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
+[Types]
+Name: full; Description: "KBF Program + source"
+Name: prog; Description: "KBF program only"
+
+[Components]
+Name: all; Description: KBF Program + source; Types: full
+Name: exe; Description: exe's only; Types: full prog
+
 [Files]
-Source: "C:\usr\shed\projects\pascal\kbf\kbf.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\usr\shed\projects\pascal\kbf\GNU GENERAL PUBLIC LICENSE.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\usr\shed\projects\pascal\kbf\help.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\usr\shed\projects\pascal\kbf\history.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\usr\shed\projects\pascal\kbf\info.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "kbf.exe"                       ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
+Source: "GNU GENERAL PUBLIC LICENSE.txt"; DestDir: "{app}"; Components : exe; Flags: ignoreversion
+Source: "help.txt"                      ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
+Source: "history.txt"                   ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
+Source: "info.txt"                      ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+
+;  incluse source if directed :: NB needs a clean checkout
+Source: "C:\usr\shed\projects\pascal\clean_kbf\*"               ; DestDir: "{app}\source"               ; Components : all; Flags: ignoreversion
+Source: "C:\usr\shed\projects\pascal\clean_kbf\lib\i386-win32\*"; DestDir: "{app}\source\lib\i386-win32"; Components : all; Flags: ignoreversion
+
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
