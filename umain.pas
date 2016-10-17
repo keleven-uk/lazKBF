@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
   ComCtrls, Menus, StdCtrls, EditBtn, CheckLst, Buttons, PopupNotifier, UAbout,
-  Uhelp, UOptions, uLicence, MMSystem;
+  Uhelp, UOptions, uLicence;
 
 type
 
@@ -32,10 +32,12 @@ type
     mnuMain: TMainMenu;
     Panel1: TPanel;
     Panel2: TPanel;
-    PopupNotifier1: TPopupNotifier;
+    PpNtfrFiles: TPopupNotifier;
+    PpNtfrInfo: TPopupNotifier;
     RdGrpSelect: TRadioGroup;
     stsBrInfo: TStatusBar;
     Timer1: TTimer;
+    TmrInfo: TTimer;
     procedure btnClearClick(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
     procedure btnKillClick(Sender: TObject);
@@ -50,7 +52,9 @@ type
     procedure mnuLicenceClick(Sender: TObject);
     procedure RdGrpSelectClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure TmrInfoTimer(Sender: TObject);
   private
+    procedure displayMessage(message : String ; message1 : String);
     function  checkATTR(fattr : LongInt): String;
     procedure walkDirectory(dir : string);
     procedure fileFound(FileIterator : TFileIterator);
@@ -63,8 +67,8 @@ type
 var
   frmMain   : TfrmMain;
   aborting  : Boolean;
-  searching : Boolean;
-  searchPos : Integer;
+  searching : Boolean;  //  true is search being performed.
+  filesSize : LongInt;  //  used to hold the total size of all files.
 implementation
 
 {$R *.lfm}
@@ -78,7 +82,6 @@ begin
   RdGrpSelect.ItemIndex    := 1;     //  default to Select None
   aborting                 := false;
   searching                := false;
-  searchPos                := 0;
 end;
 
 procedure TfrmMain.btnExitClick(Sender: TObject);
@@ -151,9 +154,11 @@ begin
 
   ChckGrpChoice.Checked[0] := true;  //  default to Thumbs.db
   RdGrpSelect.ItemIndex    := 1;     //  default to Select None
-  aborting                 := false;
 
-  PopupNotifier1.Visible := false ;
+  searching := false;
+  aborting  := false;
+
+  PpNtfrFiles.Visible := false ;
 
   ChckLstBxFiles.Clear;
 end;
@@ -180,8 +185,8 @@ VAR
 begin
 
   if (ChckLstBxFiles.Items.Count <> 0) then begin  //  noting in list box, so do nothing.
-    PopupNotifier1.ShowAtPos(100,100) ;
-    PopupNotifier1.Title   := 'File Info';
+    PpNtfrFiles.ShowAtPos(100,100) ;
+    PpNtfrFiles.Title   := 'File Info';
 
     fpos  := ChckLstBxFiles.ItemIndex;
     fname := ChckLstBxFiles.Items.Strings[fpos];
@@ -194,14 +199,14 @@ begin
     message := message + LineEnding + format('filedate :: %s',[formatDateTime('dddd mmmm yyyy  hh:nn', fdate)]);
     message := message + LineEnding + checkATTR(fattr);
 
-    if PopupNotifier1.Visible = false then begin
-      PopupNotifier1.Text    := message;
-      PopupNotifier1.Visible := true ;
+    if PpNtfrFiles.Visible = false then begin
+      PpNtfrFiles.Text    := message;
+      PpNtfrFiles.Visible := true ;
     end
     else begin  //  toggle popup.visable - performs a refresh.
-      PopupNotifier1.Visible := false ;
-      PopupNotifier1.Text    := message;
-      PopupNotifier1.Visible := true ;
+      PpNtfrFiles.Visible := false ;
+      PpNtfrFiles.Text    := message;
+      PpNtfrFiles.Visible := true ;
     end;
 
   end;  //  if ChckLstBxFiles.Items.Count = 0
@@ -272,13 +277,29 @@ begin
   searching := false;
   //  search finished.
 
-  stsBrInfo.Panels.Items[2].Text:= 'Finished walking ' + dir + ' now, Sir!' ;
+  if ChckLstBxFiles.Items.Count = 0 then begin
+    DisplayMessage('Finished walking and found nowt, Sir!', '');
+  end
+  else begin
+    DisplayMessage(format(' KBF :: Found %d files', [ChckLstBxFiles.Items.Count]),
+                   format('       :: in %d bytes', [filesSize]));
 
-  Application.Title := format(' KBF :: Found %d files', [ChckLstBxFiles.Items.Count]);
-  frmMain.Caption   := format(' KBF :: Found %d files', [ChckLstBxFiles.Items.Count]);
+    RdGrpSelect.Enabled := true;
+    btnKill.Enabled     := true;
+  end;
+end;
 
-  RdGrpSelect.Enabled := true;
-  btnKill.Enabled     := true;
+procedure TfrmMain.displayMessage(message : String ; message1 : String);
+begin
+  PpNtfrInfo.ShowAtPos(frmmain.Left, frmmain.top) ;
+  PpNtfrInfo.Title   := 'File Info';
+  PpNtfrInfo.Text    := message + LineEnding + message1;
+  PpNtfrInfo.Visible := true;
+  TmrInfo.Enabled    := true;
+
+  stsBrInfo.Panels.Items[2].Text := message;
+  Application.Title              := message;
+  frmMain.Caption                := message; ;
 end;
 
 procedure TfrmMain.fileFound(FileIterator : TFileIterator);
@@ -288,23 +309,35 @@ begin
     Application.ProcessMessages;
     if Aborting or Application.Terminated then closeApp;  //  exit clicked
 
-    if ChckGrpChoice.Checked[0] and (FileIterator.FileInfo.Name = 'Thumbs.db') then
+    if ChckGrpChoice.Checked[0] and (FileIterator.FileInfo.Name = 'Thumbs.db') then begin
+      filesSize := filesSize + FileIterator.FileInfo.Size;
       ChckLstBxFiles.Items.Add(FileIterator.FileName);
+    end;
 
-    if ChckGrpChoice.Checked[1] and (ExtractFileExt(FileIterator.FileName) = '.nfo') then
+    if ChckGrpChoice.Checked[1] and (ExtractFileExt(FileIterator.FileName) = '.nfo') then begin
+      filesSize := filesSize + FileIterator.FileInfo.Size;
       ChckLstBxFiles.Items.Add(FileIterator.FileName);
+    end;
 
-    if ChckGrpChoice.Checked[2] and (ExtractFileExt(FileIterator.FileName) = '.m3u') then
+    if ChckGrpChoice.Checked[2] and (ExtractFileExt(FileIterator.FileName) = '.m3u') then begin
+      filesSize := filesSize + FileIterator.FileInfo.Size;
       ChckLstBxFiles.Items.Add(FileIterator.FileName);
+    end;
 
-    if ChckGrpChoice.Checked[3] and (ExtractFileExt(FileIterator.FileName) = '.tmp') then
+    if ChckGrpChoice.Checked[3] and (ExtractFileExt(FileIterator.FileName) = '.tmp') then begin
+      filesSize := filesSize + FileIterator.FileInfo.Size;
       ChckLstBxFiles.Items.Add(FileIterator.FileName);
+    end;
 
-    if ChckGrpChoice.Checked[4] and (ExtractFileExt(FileIterator.FileName) = '.bac') then
+    if ChckGrpChoice.Checked[4] and (ExtractFileExt(FileIterator.FileName) = '.bac') then begin
+      filesSize := filesSize + FileIterator.FileInfo.Size;
       ChckLstBxFiles.Items.Add(FileIterator.FileName);
+    end;
 
-    if ChckGrpChoice.Checked[5] and (ExtractFileExt(FileIterator.FileName) = '.log') then
+    if ChckGrpChoice.Checked[5] and (ExtractFileExt(FileIterator.FileName) = '.log') then begin
+      filesSize := filesSize + FileIterator.FileInfo.Size;
       ChckLstBxFiles.Items.Add(FileIterator.FileName);
+    end;
 end;
 
 procedure TfrmMain.mnuItmAboutClick(Sender: TObject);
@@ -338,6 +371,11 @@ procedure TfrmMain.Timer1Timer(Sender: TObject);
 begin
   stsBrInfo.Panels.Items[0].Text := TimeToStr(Time) ;
   stsBrInfo.Panels.Items[1].Text := FormatDateTime('DD MMM YYYY', Now);
+end;
+
+procedure TfrmMain.TmrInfoTimer(Sender: TObject);
+begin
+  PpNtfrInfo.Visible := false;
 end;
 
 procedure TfrmMain.closeApp;

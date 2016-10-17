@@ -15,7 +15,7 @@ Direction for use ...
 
 The clear button allows a rescan of the chosen directory; say if the choice of files have been altered.
 
-Double clicking on any file will gibe further file details.
+Double clicking on any file will give further file details.
 
 
 WARNING
