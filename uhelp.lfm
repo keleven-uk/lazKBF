@@ -119,7 +119,7 @@ object frmHelp: TfrmHelp
   }
   OnCreate = FormCreate
   Position = poMainFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '0.9.30.4'
   object Panel1: TPanel
     Left = 8
     Height = 160

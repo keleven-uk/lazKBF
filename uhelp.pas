@@ -54,7 +54,7 @@ begin
   mmoHelp.Append('');
   mmoHelp.Append('Kevin Scott (c) - 2012.');
   mmoHelp.Append('kbf<at>keleven<dot>co<dot>uk');
-  mmoHelp.Append('KBF Build Version :: 6');
+  mmoHelp.Append('KBF Build Version :: 7');
 end;
 
 procedure TfrmHelp.btnhelpExitClick(Sender: TObject);

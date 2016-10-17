@@ -16,9 +16,9 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <BuildNr Value="6"/>
+      <BuildNr Value="7"/>
       <Language Value="0809"/>
-      <StringTable Comments="made with Lazarus." CompanyName="keleven" FileDescription="Kill those Bothersome Files." InternalName="kbf" LegalCopyright="Kevin Scott (c) - 2012" OriginalFilename="kbf" ProductName="KBF" ProductVersion="6"/>
+      <StringTable Comments="made with Lazarus." CompanyName="keleven" FileDescription="Kill those Bothersome Files." InternalName="kbf" LegalCopyright="Kevin Scott (c) - 2012" OriginalFilename="kbf" ProductName="KBF" ProductVersion="7"/>
     </VersionInfo>
     <BuildModes Count="1" Active="Default">
       <Item1 Name="Default" Default="True"/>
@@ -54,6 +54,7 @@
         <ComponentName Value="frmMain"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Umain"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
         <TopLine Value="269"/>
@@ -81,7 +82,7 @@
         <UnitName Value="UAbout"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="25"/>
+        <TopLine Value="17"/>
         <CursorPos X="54" Y="57"/>
         <UsageCount Value="59"/>
         <Loaded Value="True"/>
@@ -95,7 +96,7 @@
         <UnitName Value="Uhelp"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="26"/>
+        <TopLine Value="21"/>
         <CursorPos X="41" Y="57"/>
         <ExtraEditorCount Value="1"/>
         <UsageCount Value="55"/>
@@ -108,7 +109,6 @@
         <ComponentName Value="frmOptions"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UOptions"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
@@ -126,7 +126,7 @@
         <UnitName Value="uLicence"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="22"/>
+        <TopLine Value="18"/>
         <CursorPos X="44" Y="54"/>
         <UsageCount Value="45"/>
         <Loaded Value="True"/>

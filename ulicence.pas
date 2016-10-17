@@ -51,7 +51,7 @@ begin
   mmoLicence.Append('');
   mmoLicence.Append('Kevin Scott (c) - 2012.');
   mmoLicence.Append('kbf<at>keleven<dot>co<dot>uk');
-  mmoLicence.Append('kbf Build Version :: 6');
+  mmoLicence.Append('kbf Build Version :: 7');
 end;
 
 procedure TfrmLicence.btnLicenceExitClick(Sender: TObject);

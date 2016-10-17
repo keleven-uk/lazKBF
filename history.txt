@@ -1,4 +1,12 @@
 ------------------------------------------------------------------------
+r6 | scottk2 | 2012-03-16 11:58:18 +0000 (Fri, 16 Mar 2012) | 5 lines
+
+Added help.txt and kbf.iss[install script].
+
+Added popup notifier to display results of search.
+
+
+------------------------------------------------------------------------
 r5 | scottk2 | 2012-03-15 16:41:40 +0000 (Thu, 15 Mar 2012) | 3 lines
 
 Added file attributes to file info.
