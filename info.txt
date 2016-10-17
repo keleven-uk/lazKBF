@@ -1,14 +1,14 @@
 projext   :: kbf
-Version   :: 6
+Version   :: 1
 Date      :: Friday 15 march 2012
 Author    :: Kevin Scott
 
 Copyright 2012 :: Kevin Scott ::  kbf<at>keleven<dot>co<dot>uk
 
-Date     of last SVN commit :: $Date:: 2012-03-08 14:19:27 +0000 (Thu, 08 Mar 2012)                                      $
-Revision of last SVN commit :: $Revision:: 6                                                                             $
+Date     of last SVN commit :: $Date:: 2012-03-13 15:53:31 +0000 (Tue, 13 Mar 2012)                                      $
+Revision of last SVN commit :: $Revision:: 2                                                                             $
 Author   of last SVN commit :: $Author:: scottk2                                                                         $
-Full URL  in SVN repository :: $HeadURL:: file:///C:/usr/shed/repositories/pascal/stub/info.txt                          $
+Full URL  in SVN repository :: $HeadURL:: file:///D:/My/shed/tmp/kbf/info.txt                                            $
 
 KBF, Kill those Bothersome Files.
 
