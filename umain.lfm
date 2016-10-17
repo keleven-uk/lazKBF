@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 898
+  Left = 1416
   Height = 477
-  Top = 430
+  Top = 210
   Width = 373
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -159,6 +159,7 @@ object frmMain: TfrmMain
       Width = 75
       Caption = 'Search'
       Enabled = False
+      OnClick = btnSearchClick
       TabOrder = 1
     end
     object btnClear: TButton
@@ -168,6 +169,7 @@ object frmMain: TfrmMain
       Width = 75
       Caption = 'Clear'
       Enabled = False
+      OnClick = btnClearClick
       TabOrder = 2
     end
     object btnExit: TButton
@@ -219,12 +221,12 @@ object frmMain: TfrmMain
     ChildSizing.ControlsPerLine = 3
     Columns = 3
     Items.Strings = (
-      'thumbs.db'
+      'Thumbs.db'
       '.nfo'
       '.m3u'
       '.tmp'
       '.bac'
-      '.loc'
+      '.log'
     )
     TabOrder = 2
     Data = {

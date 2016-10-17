@@ -33,7 +33,9 @@ type
     Panel2: TPanel;
     stsBrInfo: TStatusBar;
     Timer1: TTimer;
+    procedure btnClearClick(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
+    procedure btnSearchClick(Sender: TObject);
     procedure DrctryEdtRootAcceptDirectory(Sender: TObject; var Value: String);
     procedure FormCreate(Sender: TObject);
     procedure mnuItmAboutClick(Sender: TObject);
@@ -71,12 +73,32 @@ begin
   Close;
 end;
 
-procedure TfrmMain.DrctryEdtRootAcceptDirectory(Sender: TObject;
-  var Value: String);
+procedure TfrmMain.btnClearClick(Sender: TObject);
+begin
+  DrctryEdtRoot.Directory := '';
+  DrctryEdtRoot.Enabled   := true;
+  ChckGrpChoice.Enabled   := true;
+  btnSearch.Enabled       := false;
+  btnClear.Enabled        := false;
+
+  MmFiles.Clear;
+end;
+
+procedure TfrmMain.btnSearchClick(Sender: TObject);
+begin
+  btnSearch.Enabled     := false;
+  DrctryEdtRoot.Enabled := false;
+  ChckGrpChoice.Enabled := false;
+  btnClear.Enabled      := true;
+
+  walkDirectory(DrctryEdtRoot.Directory);
+end;
+
+procedure TfrmMain.DrctryEdtRootAcceptDirectory(Sender: TObject; var Value: String);
 {  When the source directory is chosen, enable next stage.
    direcory must exist at this point                                                               }
 begin
-  walkDirectory(Value);
+  btnSearch.Enabled := true;
 end;
 
 procedure TfrmMain.walkDirectory(dir : string);
@@ -92,7 +114,7 @@ begin
   //  actual search
   fileSearch := TFileSearcher.Create;
   fileSearch.OnFileFound := @fileFound;
-  fileSearch.Search(dir, '*', true);
+  fileSearch.Search(dir, '*.*', true);
   fileSearch.Free;
   //  search finished.
 
@@ -101,13 +123,28 @@ end;
 
 procedure TfrmMain.fileFound(FileIterator : TFileIterator);
 {  called each time a search file is found, stores file in filestore.                              }
-VAR
-  c: integer;
 begin
     // process all user events, like clicking on the button
     Application.ProcessMessages;
     if Aborting or Application.Terminated then closeApp;  //  exit clicked
 
+    if ChckGrpChoice.Checked[0] and (FileIterator.FileInfo.Name = 'Thumbs.db') then
+      MmFiles.Append(FileIterator.FileName);
+
+    if ChckGrpChoice.Checked[1] and (ExtractFileExt(FileIterator.FileName) = '.nfo') then
+      MmFiles.Append(FileIterator.FileName);
+
+    if ChckGrpChoice.Checked[2] and (ExtractFileExt(FileIterator.FileName) = '.m3u') then
+      MmFiles.Append(FileIterator.FileName);
+
+    if ChckGrpChoice.Checked[3] and (ExtractFileExt(FileIterator.FileName) = '.tmp') then
+      MmFiles.Append(FileIterator.FileName);
+
+    if ChckGrpChoice.Checked[4] and (ExtractFileExt(FileIterator.FileName) = '.bac') then
+      MmFiles.Append(FileIterator.FileName);
+
+    if ChckGrpChoice.Checked[5] and (ExtractFileExt(FileIterator.FileName) = '.log') then
+      MmFiles.Append(FileIterator.FileName);
 end;
 procedure TfrmMain.mnuItmAboutClick(Sender: TObject);
 begin
