@@ -1,0 +1,17 @@
+Kill those bothersome files with KBF.
+
+Finds and kills those bothersome file. Originally written to removed
+to wrost offenders - Thumbs.db. I got so fed up with backing up
+these files along with all my pictures.
+
+The root folder is chosen and then searched this should produce a
+list of files to be killed. If it does the kill button will be enabled.
+
+If a second directory is searched without clearing the files will be
+added to the list. This is to enable the removal of files from several
+directories at once.
+
+
+Had a bit of problem with recursively searching the directory tree.
+so at the moment a DOS dir command is used. This does cause
+A DOS box to appear during searching. This can be ignored - sorry.

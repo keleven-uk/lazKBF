@@ -1,0 +1,42 @@
+object frmOptions: TfrmOptions
+  Left = 1424
+  Height = 233
+  Top = 216
+  Width = 320
+  BorderIcons = [biSystemMenu]
+  Caption = 'Options'
+  ClientHeight = 233
+  ClientWidth = 320
+  Constraints.MaxHeight = 233
+  Constraints.MaxWidth = 320
+  Constraints.MinHeight = 233
+  Constraints.MinWidth = 320
+  OnCreate = FormCreate
+  Position = poMainFormCenter
+  LCLVersion = '0.9.30'
+  object Panel1: TPanel
+    Left = 8
+    Height = 160
+    Top = 8
+    Width = 306
+    TabOrder = 0
+  end
+  object Panel2: TPanel
+    Left = 8
+    Height = 42
+    Top = 176
+    Width = 306
+    ClientHeight = 42
+    ClientWidth = 306
+    TabOrder = 1
+    object btnExit: TButton
+      Left = 224
+      Height = 25
+      Top = 8
+      Width = 75
+      Caption = 'Exit'
+      OnClick = btnExitClick
+      TabOrder = 0
+    end
+  end
+end
