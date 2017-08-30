@@ -1,45 +1,159 @@
-------------------------------------------------------------------------
-r6 | scottk2 | 2012-03-16 11:58:18 +0000 (Fri, 16 Mar 2012) | 5 lines
+commit 9c70bffc4eb9370d47ff038d8c039caed7b802d6
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Mon Oct 17 20:59:04 2016 +0100
 
-Added help.txt and kbf.iss[install script].
+    Recompiled to check for Lazarus 1.0 RC1 [although showing 0.9.31 in about box].
+    
+    Also turned off generate debugging info GB in linking options.
+    This creates a lot smaller executables.
+    
+    Amended install scripts, so given a choice to install sources.
 
-Added popup notifier to display results of search.
+ kbf.iss    | 35 +++++++++++++++++------
+ kbf.lpi    | 97 +++++++++++++++++++++++++++++++++-----------------------------
+ uabout.lfm | 26 ++++++++---------
+ uabout.pas |  2 +-
+ umain.lfm  |  7 +++--
+ umain.pas  | 13 +++++++--
+ 6 files changed, 107 insertions(+), 73 deletions(-)
 
+commit fd33df4894b67da8e649a336159fc6124eeab995
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Mon Oct 17 20:57:00 2016 +0100
 
-------------------------------------------------------------------------
-r5 | scottk2 | 2012-03-15 16:41:40 +0000 (Thu, 15 Mar 2012) | 3 lines
+    Recompiled to check for Lazarus 0.9.30.4.
+    
+    Changed icon to one with transparent background [thanks Zach]
 
-Added file attributes to file info.
+ history.txt  |   8 ++
+ info.txt     |   8 +-
+ kbf.ico      | Bin 3262 -> 5430 bytes
+ kbf.iss      |   3 +-
+ kbf.lpi      |  12 +--
+ uabout.lfm   |  26 +++---
+ uabout.pas   |   2 +-
+ uhelp.lfm    |   2 +-
+ uhelp.pas    |   2 +-
+ ulicence.lfm |   2 +-
+ ulicence.pas |   2 +-
+ umain.lfm    | 271 +++++++++++++++++++++++++++++++++++++----------------------
+ 12 files changed, 207 insertions(+), 131 deletions(-)
 
-File info now display when the entry is double clicked.
-------------------------------------------------------------------------
-r4 | scottk2 | 2012-03-15 15:28:12 +0000 (Thu, 15 Mar 2012) | 8 lines
+commit 4ec5e5ca66ab6a8b44157b120759b2b8bcd06c81
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Mon Oct 17 20:54:53 2016 +0100
 
-select all, none and individual files tested okay.
+    Added help.txt & kbf.iss [install script].
+    
+    Added popup notifier to display results of search.
 
-All delete file logic finished and test okay.
+ help.txt     |   2 +-
+ history.txt  |  37 ++++++++++++++++++
+ info.txt     |   6 +--
+ kbf.iss      |  52 ++++++++++++++++++++++++
+ kbf.lpi      |  94 ++++++++++++++++++++++++--------------------
+ uabout.pas   |   2 +-
+ uhelp.pas    |   2 +-
+ ulicence.pas |   2 +-
+ umain.lfm    | 126 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ umain.pas    |  90 ++++++++++++++++++++++++++++++------------
+ 10 files changed, 335 insertions(+), 78 deletions(-)
 
-File info window now implemented when a file is clicked in the list box.
+commit 72b92cc26ad74d97786595fc642468865fd11b8f
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Mon Oct 17 20:53:01 2016 +0100
 
-Help test file amended.
+    Added file attributes to file info.
+    
+    File info now displayed when to entry is double clicked.
 
-------------------------------------------------------------------------
-r3 | scottk2 | 2012-03-14 11:24:47 +0000 (Wed, 14 Mar 2012) | 4 lines
+ help.txt     |  2 ++
+ info.txt     |  6 ++---
+ kbf.lpi      | 84 ++++++++++++++++++++++++++++++------------------------------
+ uabout.pas   |  2 +-
+ uhelp.pas    |  2 +-
+ ulicence.pas |  2 +-
+ umain.lfm    |  2 +-
+ umain.pas    | 36 +++++++++++++++++++++++---
+ 8 files changed, 84 insertions(+), 52 deletions(-)
 
-Search works according to files selected in the choice group box.
+commit 8e32705655fb1d2ced9b3160bc3c0e42467e2167
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Mon Oct 17 20:50:06 2016 +0100
 
-Search & Clear buttons coded.
+    Select all, none and individual files tested okay.
+    
+    All delete file logic finished and tested okay.
+    
+    File info window now implemented when a file is clicked in the list box.
+    
+    Help text file amended.
 
-------------------------------------------------------------------------
-r2 | scottk2 | 2012-03-13 15:53:31 +0000 (Tue, 13 Mar 2012) | 3 lines
+ help.txt     |  13 ++++-
+ info.txt     |   6 +-
+ kbf.lpi      | 109 ++++++++++++++++++++----------------
+ uabout.pas   |   2 +-
+ uhelp.pas    |   2 +-
+ ulicence.pas |   2 +-
+ umain.lfm    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++------
+ umain.pas    | 159 +++++++++++++++++++++++++++++++++++++++++++++++-----
+ 8 files changed, 384 insertions(+), 87 deletions(-)
 
-GUI finished.
+commit 01ce48ee23470cab56bd060efb522869e88b0544
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Mon Oct 17 20:47:48 2016 +0100
 
-Basic search logic finished.
-------------------------------------------------------------------------
-r1 | scottk2 | 2012-03-13 11:41:37 +0000 (Tue, 13 Mar 2012) | 3 lines
+    Search works according to files selected in the choice group box.
+    
+    Search & Clear button coded.
 
-initial import.
+ kbf.lpi   | 64 +++++++++++++++++++++++++++++++++++++++++++++++++++++----------
+ umain.lfm | 10 ++++++----
+ umain.pas | 49 ++++++++++++++++++++++++++++++++++++++++++------
+ 3 files changed, 103 insertions(+), 20 deletions(-)
 
-renamed all files from stub.
-------------------------------------------------------------------------
+commit 726cf3844e84660b4d985cee5dc9c8d5bf56af8e
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Mon Oct 17 20:45:56 2016 +0100
+
+    GUI finished.
+    
+    Basic search logic finished.
+
+ help.txt     |  19 ++++----
+ info.txt     |   8 ++--
+ kbf.lpi      |  94 ++++++++++++++++++++++++++++++++-------
+ uabout.lfm   |  19 ++++----
+ uhelp.lfm    |   4 +-
+ uhelp.pas    |   2 +-
+ umain.lfm    | 143 ++++++++++++++++++++++++++++++++++++++++++++++++++++-------
+ umain.pas    |  72 ++++++++++++++++++++++++++++--
+ uoptions.lfm |   4 +-
+ 9 files changed, 301 insertions(+), 64 deletions(-)
+
+commit f30a36d5a86d901a0c82e9a3ac9d1017b9240152
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Mon Oct 17 20:43:24 2016 +0100
+
+    Initial import.
+    
+    Renamed all files from stub.
+
+ .gitignore                     |  33 ++
+ GNU GENERAL PUBLIC LICENSE.txt | 674 +++++++++++++++++++++++++++++++++++++++++
+ help.txt                       |  17 ++
+ info.txt                       |  15 +
+ kbf.ico                        | Bin 0 -> 3262 bytes
+ kbf.lpi                        | 194 ++++++++++++
+ kbf.lpr                        |  24 ++
+ uabout.lfm                     | 204 +++++++++++++
+ uabout.pas                     |  62 ++++
+ uhelp.lfm                      | 159 ++++++++++
+ uhelp.pas                      |  66 ++++
+ ulicence.lfm                   | 159 ++++++++++
+ ulicence.pas                   |  63 ++++
+ umain.lfm                      | 177 +++++++++++
+ umain.pas                      |  86 ++++++
+ uoptions.lfm                   |  42 +++
+ uoptions.pas                   |  47 +++
+ 17 files changed, 2022 insertions(+)

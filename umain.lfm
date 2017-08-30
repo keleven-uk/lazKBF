@@ -1,13 +1,13 @@
 object frmMain: TfrmMain
-  Left = 878
-  Height = 553
-  Top = 272
-  Width = 373
+  Left = 1289
+  Height = 538
+  Top = 244
+  Width = 589
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'KBF'
-  ClientHeight = 533
-  ClientWidth = 373
+  ClientHeight = 518
+  ClientWidth = 589
   Icon.Data = {
     3615000000000100020010100000000020006804000026000000202000000000
     2000A81000008E04000028000000100000002000000001002000000000004004
@@ -183,12 +183,12 @@ object frmMain: TfrmMain
   Menu = mnuMain
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '0.9.30.4'
+  LCLVersion = '1.8.0.4'
   object stsBrInfo: TStatusBar
     Left = 0
     Height = 23
-    Top = 510
-    Width = 373
+    Top = 495
+    Width = 589
     Panels = <    
       item
         Width = 60
@@ -203,15 +203,15 @@ object frmMain: TfrmMain
     SimplePanel = False
   end
   object Panel1: TPanel
-    Left = 9
+    Left = 10
     Height = 192
     Top = 16
-    Width = 353
+    Width = 569
     ClientHeight = 192
-    ClientWidth = 353
+    ClientWidth = 569
     TabOrder = 1
     object btnKill: TButton
-      Left = 263
+      Left = 487
       Height = 25
       Top = 8
       Width = 75
@@ -221,7 +221,7 @@ object frmMain: TfrmMain
       TabOrder = 0
     end
     object btnSearch: TButton
-      Left = 263
+      Left = 487
       Height = 25
       Top = 48
       Width = 75
@@ -231,7 +231,7 @@ object frmMain: TfrmMain
       TabOrder = 1
     end
     object btnClear: TButton
-      Left = 263
+      Left = 487
       Height = 25
       Top = 88
       Width = 75
@@ -241,7 +241,7 @@ object frmMain: TfrmMain
       TabOrder = 2
     end
     object btnExit: TButton
-      Left = 263
+      Left = 487
       Height = 25
       Top = 152
       Width = 75
@@ -250,24 +250,24 @@ object frmMain: TfrmMain
       TabOrder = 3
     end
     object GrpBxRoot: TGroupBox
-      Left = 15
+      Left = 16
       Height = 56
       Top = 8
-      Width = 225
+      Width = 457
       Caption = 'Root Directory'
-      ClientHeight = 38
-      ClientWidth = 221
+      ClientHeight = 36
+      ClientWidth = 453
       TabOrder = 4
       OnClick = GrpBxRootClick
       object DrctryEdtRoot: TDirectoryEdit
-        Left = 6
-        Height = 21
-        Top = 8
-        Width = 184
+        Left = 0
+        Height = 23
+        Top = 16
+        Width = 432
         OnAcceptDirectory = DrctryEdtRootAcceptDirectory
         ShowHidden = False
         ButtonWidth = 23
-        NumGlyphs = 0
+        NumGlyphs = 1
         MaxLength = 0
         TabOrder = 0
       end
@@ -275,9 +275,9 @@ object frmMain: TfrmMain
   end
   object ChckGrpChoice: TCheckGroup
     Left = 24
-    Height = 105
+    Height = 104
     Top = 88
-    Width = 224
+    Width = 456
     AutoFill = True
     Caption = 'Choice'
     ChildSizing.LeftRightSpacing = 6
@@ -288,6 +288,8 @@ object frmMain: TfrmMain
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 3
+    ClientHeight = 84
+    ClientWidth = 452
     Columns = 3
     Items.Strings = (
       'Thumbs.db'
@@ -296,25 +298,29 @@ object frmMain: TfrmMain
       '.tmp'
       '.bac'
       '.log'
+      '.jpg'
+      '.bmp'
+      '.png'
+      'Empty Directories'
     )
     TabOrder = 2
     Data = {
-      06000000020202020202
+      0A00000002020202020202020202
     }
   end
   object Panel2: TPanel
-    Left = 8
+    Left = 9
     Height = 266
     Top = 216
-    Width = 354
+    Width = 570
     ClientHeight = 266
-    ClientWidth = 354
+    ClientWidth = 570
     TabOrder = 3
     object ChckLstBxFiles: TCheckListBox
       Left = 16
       Height = 184
       Top = 8
-      Width = 323
+      Width = 547
       ItemHeight = 0
       OnDblClick = ChckLstBxFilesDblClick
       TabOrder = 0
@@ -334,7 +340,7 @@ object frmMain: TfrmMain
       ChildSizing.ShrinkVertical = crsScaleChilds
       ChildSizing.Layout = cclLeftToRightThenTopToBottom
       ChildSizing.ControlsPerLine = 2
-      ClientHeight = 31
+      ClientHeight = 29
       ClientWidth = 317
       Columns = 2
       Enabled = False

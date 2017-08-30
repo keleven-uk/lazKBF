@@ -59,6 +59,7 @@ type
     function  checkATTR(fattr : LongInt): String;
     procedure walkDirectory(dir : string);
     procedure fileFound(FileIterator : TFileIterator);
+    procedure DirectoryFound(FileIterator : TFileIterator);
     procedure deleteFiles;
     procedure closeApp;
   public
@@ -68,8 +69,10 @@ type
 var
   frmMain   : TfrmMain;
   aborting  : Boolean;
-  searching : Boolean;  //  true is search being performed.
+  searching : Boolean;  //  true if search being performed.
   filesSize : LongInt;  //  used to hold the total size of all files.
+  noOfFiles : LongInt;  //  used to hold the total number of files.
+  noOfDirs  : LongInt;  //  used to hold the total number of directories.
 
   fileSearch : TFileSearcher;
 implementation
@@ -85,6 +88,9 @@ begin
   RdGrpSelect.ItemIndex    := 1;     //  default to Select None
   aborting                 := false;
   searching                := false;
+
+  noOfFiles := 0;
+  noOfDirs  := 0;
 end;
 
 procedure TfrmMain.GrpBxRootClick(Sender: TObject);
@@ -143,7 +149,11 @@ begin
 end;
 
 procedure TfrmMain.btnClearClick(Sender: TObject);
-{  clear/reset the form, can be called for anywhere - so clear everything.                         }
+{  clear/reset the form, can be called for anywhere - so clear everything.}
+
+VAR
+  i : integer;
+
 begin
   if btnClear.Caption = 'Reset' then
     btnClear.Caption := 'Clear';
@@ -160,7 +170,10 @@ begin
   frmMain.Caption   := ' KBF';
   stsBrInfo.Panels.Items[2].Text:= '';
 
-  ChckGrpChoice.Checked[0] := true;  //  default to Thumbs.db
+  for i := 0 to ChckGrpChoice.Items.Count -1 do  //  Clears all choices prevously selected.
+    ChckGrpChoice.Checked[i] := False;
+
+  ChckGrpChoice.Checked[0] := True;  //  default to Thumbs.db
   RdGrpSelect.ItemIndex    := 1;     //  default to Select None
 
   searching := false;
@@ -241,12 +254,11 @@ begin
   end
   else
     checkATTR := '';
-
 end;
 
 procedure TfrmMain.RdGrpSelectClick(Sender: TObject);
 {  check all or clears all entries in the list box.
-   must be an easir way - can't finf a listbox checkall or clearall finction call.                 }
+   must be an easir way - can't find a listbox checkall or clearall function call.                 }
 VAR
   f : integer;
 begin
@@ -270,7 +282,8 @@ end;
 
 procedure TfrmMain.walkDirectory(dir : string);
 {  Walk a directory passed into procedure.
-   All files that match a certain pattern are added to filestore, filestore is declared globably..
+   All files that match a certain pattern are added to filestore, filestore is declared globably.
+   All emptry directories are aslo added to the filestore, if option selected.
    The pattern in a chosen file extension - from a combo box.
    Does not check if directory exists.                                         }
 
@@ -281,6 +294,7 @@ begin
   searching  := true;
   fileSearch := TFileSearcher.Create;
   fileSearch.OnFileFound := @fileFound;
+  fileSearch.OnDirectoryFound  := @DirectoryFound;
   fileSearch.Search(dir, '*.*', true);
   fileSearch.Free;
   searching := false;
@@ -289,9 +303,10 @@ begin
   if ChckLstBxFiles.Items.Count = 0 then begin
     DisplayMessage('Finished walking and found nowt, Sir!', '');
   end
-  else begin
-    DisplayMessage(format(' KBF :: Found %d files', [ChckLstBxFiles.Items.Count]),
-                   format('       :: in %d bytes', [filesSize]));
+  else begin                                                //  ChckLstBxFiles.Items.Count = NoOfFiles + noOfDirs
+    noOfFiles := ChckLstBxFiles.Items.Count - noOfDirs;
+    DisplayMessage(format(' KBF :: Found %d files, %d Empty Directories', [noOfFiles, noOfDirs]),
+                   FormatFloat('       :: in #,### bytes',filesSize));
 
     RdGrpSelect.Enabled := true;
     btnKill.Enabled     := true;
@@ -306,15 +321,35 @@ begin
   PpNtfrInfo.Visible := true;
   TmrInfo.Enabled    := true;
 
-  stsBrInfo.Panels.Items[2].Text := message;
+  stsBrInfo.Panels.Items[2].Text := message + LineEnding + message1;
   Application.Title              := message;
-  frmMain.Caption                := message; ;
+  frmMain.Caption                := message;
+end;
+
+procedure TfrmMain.DirectoryFound(FileIterator : TFileIterator);
+
+VAR
+    filesInDir : TStringList;
+
+begin
+    if ChckGrpChoice.Checked[9] then begin
+
+        // process all user events, like clicking on the button
+        Application.ProcessMessages;
+        if Aborting or Application.Terminated then closeApp;  //  exit clicked
+
+        filesInDir := FindAllFiles(FileIterator.FileName, '', True);
+        if filesInDir.Count = 0 then begin
+            noOfDirs +=1;
+            ChckLstBxFiles.Items.Add(format('Empty DIR :: %s', [FileIterator.FileName]));
+         end;
+    end;
 end;
 
 procedure TfrmMain.fileFound(FileIterator : TFileIterator);
 {  called each time a search file is found, stores file in filestore.                              }
 begin
-    // process all user events, like clicking on the button
+// process all user events, like clicking on the button
     Application.ProcessMessages;
     if Aborting or Application.Terminated then closeApp;  //  exit clicked
 
@@ -344,6 +379,21 @@ begin
     end;
 
     if ChckGrpChoice.Checked[5] and (ExtractFileExt(FileIterator.FileName) = '.log') then begin
+      filesSize := filesSize + FileIterator.FileInfo.Size;
+      ChckLstBxFiles.Items.Add(FileIterator.FileName);
+    end;
+
+    if ChckGrpChoice.Checked[6] and (ExtractFileExt(FileIterator.FileName) = '.jpg') then begin
+      filesSize := filesSize + FileIterator.FileInfo.Size;
+      ChckLstBxFiles.Items.Add(FileIterator.FileName);
+    end;
+
+    if ChckGrpChoice.Checked[7] and (ExtractFileExt(FileIterator.FileName) = '.bmp') then begin
+      filesSize := filesSize + FileIterator.FileInfo.Size;
+      ChckLstBxFiles.Items.Add(FileIterator.FileName);
+    end;
+
+    if ChckGrpChoice.Checked[8] and (ExtractFileExt(FileIterator.FileName) = '.png') then begin
       filesSize := filesSize + FileIterator.FileInfo.Size;
       ChckLstBxFiles.Items.Add(FileIterator.FileName);
     end;
@@ -389,7 +439,8 @@ end;
 
 procedure TfrmMain.closeApp;
 begin
-  Aborting := true;
+  Aborting  := true;
+  Searching := False;
   Close;
 end;
 
