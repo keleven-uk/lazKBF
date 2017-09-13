@@ -28,7 +28,7 @@ type
     { private declarations }
   public
     { public declarations }
-  end; 
+  end;
 
 var
   frmAbout: TfrmAbout;
@@ -46,17 +46,17 @@ begin
 end;
 
 procedure TfrmAbout.FormCreate(Sender: TObject);
-VAR
-  dskSize : String;
-  dskFree : String;
+var
+  dskSize: string;
+  dskFree: string;
 begin
   dskFree := FloatToStrF(DiskFree(0) / 1073741824, ffFixed, 3, 2);
   dskSize := FloatToStrF(DiskSize(0) / 1073741824, ffFixed, 3, 2);
 
   lblLazarusVersion.Caption := format('Built with Lazarus Version :: %s', [lcl_version]);
-  lblKBFversion.Caption     := 'KBF Buld Version :: 8';
-  lblDiskSize.Caption       := ' Disk Free / Size :: ' + dskFree + ' / ' +  dskSize + ' Gbytes'
+  lblKBFversion.Caption := 'KBF Buld Version :: 8';
+  lblDiskSize.Caption :=
+    ' Disk Free / Size :: ' + dskFree + ' / ' + dskSize + ' Gbytes';
 end;
 
 end.
-

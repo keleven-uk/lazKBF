@@ -23,7 +23,7 @@ type
     { private declarations }
   public
     { public declarations }
-  end; 
+  end;
 
 var
   frmLicence: TfrmLicence;
@@ -41,7 +41,8 @@ begin
   try
     mmoLicence.Lines.LoadFromFile('GNU GENERAL PUBLIC LICENSE.txt');
   except
-    on Exception do begin
+    on Exception do
+    begin
       mmoLicence.Append(' help License not found.');
       mmoLicence.Append('');
       mmoLicence.Append(' The application is issued under the GNU GENERAL PUBLIC LICENSE.');
@@ -60,4 +61,3 @@ begin
 end;
 
 end.
-

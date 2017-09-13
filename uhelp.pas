@@ -23,7 +23,7 @@ type
     { private declarations }
   public
     { public declarations }
-  end; 
+  end;
 
 var
   frmHelp: TfrmHelp;
@@ -43,7 +43,8 @@ begin
   try
     mmoHelp.Lines.LoadFromFile('help.txt');
   except
-    on Exception do begin
+    on Exception do
+    begin
       mmoHelp.Append(' help file not found.');
       mmoHelp.Append('');
       mmoHelp.Append(' This file should include full and detailed help intructions.');
@@ -63,4 +64,3 @@ begin
 end;
 
 end.
-

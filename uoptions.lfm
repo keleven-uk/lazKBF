@@ -11,9 +11,8 @@ object frmOptions: TfrmOptions
   Constraints.MaxWidth = 320
   Constraints.MinHeight = 233
   Constraints.MinWidth = 320
-  OnCreate = FormCreate
   Position = poMainFormCenter
-  LCLVersion = '0.9.30'
+  LCLVersion = '1.8.0.4'
   object Panel1: TPanel
     Left = 8
     Height = 160

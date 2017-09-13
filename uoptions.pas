@@ -17,12 +17,11 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     procedure btnExitClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
-  end; 
+  end;
 
 var
   frmOptions: TfrmOptions;
@@ -33,15 +32,9 @@ implementation
 
 { TfrmOptions }
 
-procedure TfrmOptions.FormCreate(Sender: TObject);
-begin
-
-end;
-
 procedure TfrmOptions.btnExitClick(Sender: TObject);
 begin
   Close;
 end;
 
 end.
-

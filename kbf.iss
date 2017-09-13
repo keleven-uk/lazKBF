@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "KBF"
-#define MyAppVersion "6"
+#define MyAppVersion "9"
 #define MyAppPublisher "Keleven"
 #define MyAppURL "www.keleven.co.uk"
 #define MyAppExeName "kbf.exe"
@@ -21,16 +21,27 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 
 ;  all source files here
-SourceDir=C:\usr\shed\projects\pascal\kbf
+SourceDir=D:\My\shed\Projects\pascal\lazKBF
 
 DefaultDirName={pf}\keleven\kbf
 DefaultGroupName={#MyAppName}
 LicenseFile=GNU GENERAL PUBLIC LICENSE.txt
 InfoAfterFile=help.txt
-OutputDir=C:\usr\shed\projects\pascal
+OutputDir=D:\My\shed\Projects\pascal
 OutputBaseFilename=kbf
+SetupIconFile=kbf.ico
 Compression=lzma
 SolidCompression=yes
+DisableStartupPrompt=False
+UsePreviousAppDir=False
+SetupLogging=True
+
+; "ArchitecturesInstallIn64BitMode=x64" requests that the install be done in "64-bit mode" 
+; on x64, meaning it should use the native 64-bit Program Files directory and the 64-bit 
+; view of the registry. On all other architectures it will install in "32-bit mode".
+ArchitecturesInstallIn64BitMode=x64
+; Note: We don't set ProcessorsAllowed because we want this installation to run on 
+; all architectures (including Itanium,since it's capable of running 32-bit code too).
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -47,18 +58,17 @@ Name: prog; Description: "KBF program only"
 Name: all; Description: KBF Program + source; Types: full
 Name: exe; Description: exe's only; Types: full prog
 
-[Files]
-Source: "kbf.exe"                       ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
-Source: "GNU GENERAL PUBLIC LICENSE.txt"; DestDir: "{app}"; Components : exe; Flags: ignoreversion
-Source: "help.txt"                      ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
-Source: "history.txt"                   ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
-Source: "info.txt"                      ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
+; installs either klock_x64 or klock_x86 - but names them klock.exe
+[Files]
+Source: "kbf_32.exe"                     ; DestDir: "{app}"; DestName: {#MyAppExeName}; Components : exe; Flags: ignoreversion ; Check: not Is64BitInstallMode
+Source: "kbf_64.exe"                     ; DestDir: "{app}"; DestName: {#MyAppExeName}; Components : exe; Flags: ignoreversion ; Check: Is64BitInstallMode
+Source: "GNU GENERAL PUBLIC LICENSE.txt" ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
+Source: "help.txt"                       ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
+Source: "history.txt"                    ; DestDir: "{app}"; Components : exe; Flags: ignoreversion
 
-;  incluse source if directed :: NB needs a clean checkout
-Source: "C:\usr\shed\projects\pascal\clean_kbf\*"               ; DestDir: "{app}\source"               ; Components : all; Flags: ignoreversion
-Source: "C:\usr\shed\projects\pascal\clean_kbf\lib\i386-win32\*"; DestDir: "{app}\source\lib\i386-win32"; Components : all; Flags: ignoreversion
-
+;  include source :: NB needs a clean checkout
+Source: "D:\My\shed\Projects\pascal\clean_kbf\*" ; DestDir: "{app}\source" ; Components : all; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

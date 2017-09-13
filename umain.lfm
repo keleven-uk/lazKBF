@@ -1,13 +1,13 @@
 object frmMain: TfrmMain
-  Left = 1289
-  Height = 538
-  Top = 244
-  Width = 589
+  Left = 1172
+  Height = 601
+  Top = 214
+  Width = 706
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'KBF'
-  ClientHeight = 518
-  ClientWidth = 589
+  ClientHeight = 581
+  ClientWidth = 706
   Icon.Data = {
     3615000000000100020010100000000020006804000026000000202000000000
     2000A81000008E04000028000000100000002000000001002000000000004004
@@ -187,8 +187,8 @@ object frmMain: TfrmMain
   object stsBrInfo: TStatusBar
     Left = 0
     Height = 23
-    Top = 495
-    Width = 589
+    Top = 558
+    Width = 706
     Panels = <    
       item
         Width = 60
@@ -206,12 +206,12 @@ object frmMain: TfrmMain
     Left = 10
     Height = 192
     Top = 16
-    Width = 569
+    Width = 686
     ClientHeight = 192
-    ClientWidth = 569
+    ClientWidth = 686
     TabOrder = 1
     object btnKill: TButton
-      Left = 487
+      Left = 597
       Height = 25
       Top = 8
       Width = 75
@@ -221,7 +221,7 @@ object frmMain: TfrmMain
       TabOrder = 0
     end
     object btnSearch: TButton
-      Left = 487
+      Left = 597
       Height = 25
       Top = 48
       Width = 75
@@ -231,7 +231,7 @@ object frmMain: TfrmMain
       TabOrder = 1
     end
     object btnClear: TButton
-      Left = 487
+      Left = 597
       Height = 25
       Top = 88
       Width = 75
@@ -241,7 +241,7 @@ object frmMain: TfrmMain
       TabOrder = 2
     end
     object btnExit: TButton
-      Left = 487
+      Left = 597
       Height = 25
       Top = 152
       Width = 75
@@ -253,16 +253,15 @@ object frmMain: TfrmMain
       Left = 16
       Height = 56
       Top = 8
-      Width = 457
+      Width = 569
       Caption = 'Root Directory'
       ClientHeight = 36
-      ClientWidth = 453
+      ClientWidth = 565
       TabOrder = 4
-      OnClick = GrpBxRootClick
       object DrctryEdtRoot: TDirectoryEdit
-        Left = 0
+        Left = 8
         Height = 23
-        Top = 16
+        Top = 8
         Width = 432
         OnAcceptDirectory = DrctryEdtRootAcceptDirectory
         ShowHidden = False
@@ -277,7 +276,7 @@ object frmMain: TfrmMain
     Left = 24
     Height = 104
     Top = 88
-    Width = 456
+    Width = 576
     AutoFill = True
     Caption = 'Choice'
     ChildSizing.LeftRightSpacing = 6
@@ -289,7 +288,7 @@ object frmMain: TfrmMain
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 3
     ClientHeight = 84
-    ClientWidth = 452
+    ClientWidth = 572
     Columns = 3
     Items.Strings = (
       'Thumbs.db'
@@ -301,35 +300,37 @@ object frmMain: TfrmMain
       '.jpg'
       '.bmp'
       '.png'
+      '.txt'
+      'VI backup files'
       'Empty Directories'
     )
     TabOrder = 2
     Data = {
-      0A00000002020202020202020202
+      0C000000020202020202020202020202
     }
   end
   object Panel2: TPanel
-    Left = 9
-    Height = 266
+    Left = 10
+    Height = 328
     Top = 216
-    Width = 570
-    ClientHeight = 266
-    ClientWidth = 570
+    Width = 686
+    ClientHeight = 328
+    ClientWidth = 686
     TabOrder = 3
     object ChckLstBxFiles: TCheckListBox
       Left = 16
       Height = 184
       Top = 8
-      Width = 547
+      Width = 659
       ItemHeight = 0
       OnDblClick = ChckLstBxFilesDblClick
       TabOrder = 0
     end
     object RdGrpSelect: TRadioGroup
       Left = 16
-      Height = 49
+      Height = 113
       Top = 200
-      Width = 321
+      Width = 80
       AutoFill = True
       Caption = 'Select'
       ChildSizing.LeftRightSpacing = 6
@@ -338,12 +339,11 @@ object frmMain: TfrmMain
       ChildSizing.EnlargeVertical = crsHomogenousChildResize
       ChildSizing.ShrinkHorizontal = crsScaleChilds
       ChildSizing.ShrinkVertical = crsScaleChilds
-      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.Layout = cclTopToBottomThenLeftToRight
       ChildSizing.ControlsPerLine = 2
-      ClientHeight = 29
-      ClientWidth = 317
-      Columns = 2
-      Enabled = False
+      ClientHeight = 93
+      ClientWidth = 76
+      ColumnLayout = clVerticalThenHorizontal
       ItemIndex = 1
       Items.Strings = (
         'All'
@@ -352,16 +352,45 @@ object frmMain: TfrmMain
       OnClick = RdGrpSelectClick
       TabOrder = 1
     end
+    object Information: TGroupBox
+      Left = 104
+      Height = 113
+      Top = 200
+      Width = 568
+      Caption = 'Information'
+      ClientHeight = 93
+      ClientWidth = 564
+      TabOrder = 2
+      object AdvLedSearch: TAdvLed
+        Left = 32
+        Height = 24
+        Top = 23
+        Width = 24
+        Kind = lkGreenLight
+        State = lsOn
+        Blink = False
+      end
+      object lblTaken: TLabel
+        Left = 88
+        Height = 1
+        Top = 48
+        Width = 1
+        ParentColor = False
+      end
+      object lblInfo: TLabel
+        Left = 88
+        Height = 1
+        Top = 16
+        Width = 1
+        ParentColor = False
+      end
+    end
   end
   object mnuMain: TMainMenu
-    left = 328
-    top = 472
+    left = 336
+    top = 496
     object mnuFile: TMenuItem
       Caption = 'File'
-      object mnuItmOptions: TMenuItem
-        Caption = 'Options'
-        OnClick = mnuItmOptionsClick
-      end
       object mnuItmExit: TMenuItem
         Caption = 'Exit'
         OnClick = mnuItmExitClick
@@ -385,8 +414,8 @@ object frmMain: TfrmMain
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
-    left = 456
-    top = 392
+    left = 392
+    top = 504
   end
   object PpNtfrFiles: TPopupNotifier
     Color = clSilver
@@ -499,7 +528,7 @@ object frmMain: TfrmMain
     Title = 'Caption'
     Visible = False
     left = 288
-    top = 472
+    top = 504
   end
   object PpNtfrInfo: TPopupNotifier
     Color = clSilver
@@ -611,14 +640,14 @@ object frmMain: TfrmMain
     Text = 'Text'
     Title = 'Caption'
     Visible = False
-    left = 240
-    top = 472
+    left = 248
+    top = 496
   end
   object TmrInfo: TTimer
     Enabled = False
     Interval = 4000
     OnTimer = TmrInfoTimer
-    left = 192
-    top = 480
+    left = 200
+    top = 504
   end
 end
