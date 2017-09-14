@@ -1,4 +1,4 @@
-unit Umain;
+unit formMain;
 
 {$mode objfpc}{$H+}
 
@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, AdvLed, Forms, EditBtn,
   Controls, Graphics, Dialogs, ExtCtrls, ComCtrls, Menus, StdCtrls,
-  CheckLst, Buttons, PopupNotifier, UAbout, Uhelp, uLicence;
+  CheckLst, Buttons, PopupNotifier, formAbout, formHelp, formLicence, uInfo;
 
 type
 
@@ -103,12 +103,12 @@ begin
   AdvLedSearch.State       := lsOn;
   AdvLedSearch.Kind        := lkRedLight;
   btnSearch.Enabled        := False;      //  turn off search button till needed.
-  Application.Title        := ' KBF';     //  set application title.
+  Application.Title        := strAppName; //  set application title.
   btnClear.Enabled         := False;      //  turn off clear button till needed.
   lblTaken.Caption         := '';         //  Clear labels.
   lblInfo.Caption          := '';
   btnKill.Enabled          := False;      //  turn off kill button till needed.
-  frmMain.Caption          := ' KBF';     //  set form title.
+  frmMain.Caption          := strAppName; //  set form title.
 
   aborting  := False;
   searching := False;

@@ -1,4 +1,7 @@
-unit Uhelp;
+unit formHelp;
+
+{  Display Help info.
+   The Help info is loaded from a text file.  }
 
 {$mode objfpc}{$H+}
 
@@ -6,7 +9,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls;
+  ExtCtrls, uInfo;
 
 type
 
@@ -53,9 +56,9 @@ begin
 
   mmoHelp.Append('');
   mmoHelp.Append('');
-  mmoHelp.Append('Kevin Scott (c) - 2012.');
-  mmoHelp.Append('kbf<at>keleven<dot>co<dot>uk');
-  mmoHelp.Append('KBF Build Version :: 7');
+  mmoHelp.Append(strName);
+  mmoHelp.Append(strCopyRight);
+  mmoHelp.Append(strVersion);
 end;
 
 procedure TfrmHelp.btnhelpExitClick(Sender: TObject);

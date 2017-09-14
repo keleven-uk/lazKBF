@@ -1,4 +1,7 @@
-unit uLicence;
+unit formLicence;
+
+{  Display Licence info.
+   The Licence info is loaded from a text file.  }
 
 {$mode objfpc}{$H+}
 
@@ -6,7 +9,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  ExtCtrls;
+  ExtCtrls, uInfo;
 
 type
 
@@ -50,9 +53,9 @@ begin
   end;
 
   mmoLicence.Append('');
-  mmoLicence.Append('Kevin Scott (c) - 2012.');
-  mmoLicence.Append('kbf<at>keleven<dot>co<dot>uk');
-  mmoLicence.Append('kbf Build Version :: 7');
+  mmoLicence.Append(strName);
+  mmoLicence.Append(strCopyRight);
+  mmoLicence.Append(strVersion);
 end;
 
 procedure TfrmLicence.btnLicenceExitClick(Sender: TObject);

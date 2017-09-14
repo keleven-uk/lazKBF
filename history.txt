@@ -1,8 +1,42 @@
+Build 10
+
+commit a6f1ce5c6036227933c72b550fa0cb0bc90975f7
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Wed Sep 13 23:15:21 2017 +0100
+
+    Added LED - which flashes green when searching and steady red when not.
+    
+    Amended installer to install either 32 bit or 64 bit, depending upon
+    target system.
+    
+    Added config file for SourceMonitor.
+    Currently
+    732 lines of source code.
+    330 statements
+    9.7% comments
+
+ .gitignore    |   5 +-
+ history.txt   |  24 ++-
+ kbf.iss       |  36 +++--
+ kbf.lpi       | 143 +++++++-----------
+ kbf.lpr       |   3 +-
+ lazKBF.smproj | Bin 0 -> 8419 bytes
+ uabout.pas    |  14 +-
+ uhelp.pas     |   6 +-
+ ulicence.pas  |   6 +-
+ umain.lfm     | 125 ++++++++++------
+ umain.pas     | 467 ++++++++++++++++++++++++++++++++--------------------------
+ uoptions.lfm  |   3 +-
+ uoptions.pas  |   9 +-
+ 13 files changed, 455 insertions(+), 386 deletions(-)
+
+Build 9
+
 commit 8ce58f9d3b600d5648d827dce8126b3226939eb2
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Wed Aug 30 22:33:36 2017 +0100
 
-    Recompiled to check for lazarus 1.8.0.4
+    Recompiled to check for Lazarus 1.8.0.4
 
     Added the option to search for and delete image files [.jpg, .bmp & .png].
     
@@ -16,16 +50,18 @@ Date:   Wed Aug 30 22:33:36 2017 +0100
  umain.pas   |  77 ++++++++++++++++++----
  6 files changed, 419 insertions(+), 184 deletions(-)
 
+Build 8
+
 commit 9c70bffc4eb9370d47ff038d8c039caed7b802d6
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:59:04 2016 +0100
 
-    Recompiled to check for lazarus 1.0 RC1 [although showing 0.9.31 in about box].
+    Recompiled to check for Lazarus 1.0 RC1 [although showing 0.9.31 in about box].
     
     Also turned off generate debugging info GB in linking options.
     This creates a lot smaller executables.
     
-    Amended install scripts, so given a coice to install sources.
+    Amended install scripts, to give a choice to install sources.
 
  kbf.iss    | 35 +++++++++++++++++------
  kbf.lpi    | 97 +++++++++++++++++++++++++++++++++-----------------------------
@@ -34,6 +70,8 @@ Date:   Mon Oct 17 20:59:04 2016 +0100
  umain.lfm  |  7 +++--
  umain.pas  | 13 +++++++--
  6 files changed, 107 insertions(+), 73 deletions(-)
+
+Build 7
 
 commit fd33df4894b67da8e649a336159fc6124eeab995
 Author: Kevin Scott <lazKBF@keleven.co.uk>
@@ -57,13 +95,15 @@ Date:   Mon Oct 17 20:57:00 2016 +0100
  umain.lfm    | 271 +++++++++++++++++++++++++++++++++++++----------------------
  12 files changed, 207 insertions(+), 131 deletions(-)
 
+Build 6
+
 commit 4ec5e5ca66ab6a8b44157b120759b2b8bcd06c81
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:54:53 2016 +0100
 
     Added help.txt & kbf.iss [install script].
     
-    Added popup notifier to display results of search.
+    Added pop-up notifier to display results of search.
 
  help.txt     |   2 +-
  history.txt  |  37 ++++++++++++++++++
@@ -76,6 +116,8 @@ Date:   Mon Oct 17 20:54:53 2016 +0100
  umain.lfm    | 126 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
  umain.pas    |  90 ++++++++++++++++++++++++++++++------------
  10 files changed, 335 insertions(+), 78 deletions(-)
+
+Build 5
 
 commit 72b92cc26ad74d97786595fc642468865fd11b8f
 Author: Kevin Scott <lazKBF@keleven.co.uk>
@@ -94,6 +136,8 @@ Date:   Mon Oct 17 20:53:01 2016 +0100
  umain.lfm    |  2 +-
  umain.pas    | 36 +++++++++++++++++++++++---
  8 files changed, 84 insertions(+), 52 deletions(-)
+
+Build 4
 
 commit 8e32705655fb1d2ced9b3160bc3c0e42467e2167
 Author: Kevin Scott <lazKBF@keleven.co.uk>
@@ -117,6 +161,8 @@ Date:   Mon Oct 17 20:50:06 2016 +0100
  umain.pas    | 159 +++++++++++++++++++++++++++++++++++++++++++++++-----
  8 files changed, 384 insertions(+), 87 deletions(-)
 
+Build 3
+
 commit 01ce48ee23470cab56bd060efb522869e88b0544
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:47:48 2016 +0100
@@ -129,6 +175,8 @@ Date:   Mon Oct 17 20:47:48 2016 +0100
  umain.lfm | 10 ++++++----
  umain.pas | 49 ++++++++++++++++++++++++++++++++++++++++++------
  3 files changed, 103 insertions(+), 20 deletions(-)
+
+Build 2
 
 commit 726cf3844e84660b4d985cee5dc9c8d5bf56af8e
 Author: Kevin Scott <lazKBF@keleven.co.uk>
@@ -148,6 +196,8 @@ Date:   Mon Oct 17 20:45:56 2016 +0100
  umain.pas    |  72 ++++++++++++++++++++++++++++--
  uoptions.lfm |   4 +-
  9 files changed, 301 insertions(+), 64 deletions(-)
+
+Build 1
 
 commit f30a36d5a86d901a0c82e9a3ac9d1017b9240152
 Author: Kevin Scott <lazKBF@keleven.co.uk>

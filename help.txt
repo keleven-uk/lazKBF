@@ -18,6 +18,8 @@ The clear button allows a rescan of the chosen directory; say if the choice of f
 Double clicking on any file will give further file details.
 
 
+The LED will show a flashing GREEN while searching, but steady RED when not.
+
 WARNING
 
 .::. This program permanently deletes files - does not use the recycle bin [I don't know that bit yet]. .::.

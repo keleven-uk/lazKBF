@@ -119,24 +119,26 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="11">
       <Unit0>
         <Filename Value="kbf.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos Y="23"/>
-        <UsageCount Value="82"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="59" Y="10"/>
+        <UsageCount Value="83"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="umain.pas"/>
+        <Filename Value="formmain.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Umain"/>
+        <UnitName Value="formMain"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="37"/>
-        <CursorPos X="38" Y="65"/>
-        <UsageCount Value="82"/>
+        <TopLine Value="91"/>
+        <CursorPos X="64" Y="114"/>
+        <UsageCount Value="83"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -145,37 +147,38 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="15" Y="2"/>
-        <UsageCount Value="80"/>
+        <UsageCount Value="81"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit2>
       <Unit3>
-        <Filename Value="uabout.pas"/>
+        <Filename Value="formabout.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="UAbout"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="29"/>
-        <CursorPos X="54" Y="57"/>
-        <UsageCount Value="80"/>
+        <UnitName Value="formAbout"/>
+        <EditorIndex Value="4"/>
+        <CursorPos X="30" Y="11"/>
+        <UsageCount Value="81"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit3>
       <Unit4>
-        <Filename Value="uhelp.pas"/>
+        <Filename Value="formhelp.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmHelp"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="Uhelp"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="21"/>
-        <CursorPos X="41" Y="57"/>
+        <UnitName Value="formHelp"/>
+        <EditorIndex Value="3"/>
+        <CursorPos Y="3"/>
         <ExtraEditorCount Value="1"/>
         <ExtraEditor1>
           <EditorIndex Value="-1"/>
           <TopLine Value="33"/>
         </ExtraEditor1>
-        <UsageCount Value="76"/>
+        <UsageCount Value="77"/>
+        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="uoptions.pas"/>
@@ -189,14 +192,17 @@
         <UsageCount Value="65"/>
       </Unit5>
       <Unit6>
-        <Filename Value="ulicence.pas"/>
+        <Filename Value="formlicence.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmLicence"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="uLicence"/>
-        <EditorIndex Value="-1"/>
-        <UsageCount Value="66"/>
+        <UnitName Value="formLicence"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="15" Y="4"/>
+        <UsageCount Value="67"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
@@ -216,96 +222,41 @@
         <CursorPos Y="172"/>
         <UsageCount Value="9"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="uinfo.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uInfo"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="13" Y="14"/>
+        <UsageCount Value="21"/>
+        <Loaded Value="True"/>
+      </Unit10>
     </Units>
-    <JumpHistory Count="22" HistoryIndex="21">
+    <JumpHistory Count="6" HistoryIndex="5">
       <Position1>
-        <Filename Value="umain.pas"/>
-        <Caret Line="237" Column="41" TopLine="215"/>
+        <Filename Value="formmain.pas"/>
+        <Caret Column="6"/>
       </Position1>
       <Position2>
-        <Filename Value="umain.pas"/>
-        <Caret Line="236" Column="41" TopLine="214"/>
+        <Filename Value="kbf.lpr"/>
+        <Caret Line="17" Column="44"/>
       </Position2>
       <Position3>
-        <Filename Value="umain.pas"/>
-        <Caret Line="170" TopLine="151"/>
+        <Filename Value="uinfo.pas"/>
+        <Caret Line="16" Column="14"/>
       </Position3>
       <Position4>
-        <Filename Value="umain.pas"/>
-        <Caret Line="198" TopLine="179"/>
+        <Filename Value="kbf.lpr"/>
+        <Caret Line="10" Column="59"/>
       </Position4>
       <Position5>
-        <Filename Value="umain.pas"/>
-        <Caret Line="170" TopLine="151"/>
+        <Filename Value="uinfo.pas"/>
+        <Caret Line="17" Column="53"/>
       </Position5>
       <Position6>
-        <Filename Value="umain.pas"/>
-        <Caret Line="63" TopLine="30"/>
+        <Filename Value="formabout.pas"/>
+        <Caret Line="59" Column="29" TopLine="23"/>
       </Position6>
-      <Position7>
-        <Filename Value="umain.pas"/>
-        <Caret Line="340" TopLine="321"/>
-      </Position7>
-      <Position8>
-        <Filename Value="umain.pas"/>
-        <Caret Line="365" TopLine="346"/>
-      </Position8>
-      <Position9>
-        <Filename Value="umain.pas"/>
-        <Caret Line="172" Column="34" TopLine="155"/>
-      </Position9>
-      <Position10>
-        <Filename Value="umain.pas"/>
-        <Caret Line="91" Column="33" TopLine="72"/>
-      </Position10>
-      <Position11>
-        <Filename Value="umain.pas"/>
-        <Caret Line="171" Column="39" TopLine="152"/>
-      </Position11>
-      <Position12>
-        <Filename Value="umain.pas"/>
-        <Caret Line="208" Column="27" TopLine="231"/>
-      </Position12>
-      <Position13>
-        <Filename Value="umain.pas"/>
-        <Caret Line="95" Column="28" TopLine="83"/>
-      </Position13>
-      <Position14>
-        <Filename Value="umain.pas"/>
-        <Caret Line="209" Column="30" TopLine="186"/>
-      </Position14>
-      <Position15>
-        <Filename Value="umain.pas"/>
-        <Caret Line="202" Column="22" TopLine="183"/>
-      </Position15>
-      <Position16>
-        <Filename Value="umain.pas"/>
-        <Caret Line="218" Column="65" TopLine="198"/>
-      </Position16>
-      <Position17>
-        <Filename Value="umain.pas"/>
-        <Caret Line="17" Column="47"/>
-      </Position17>
-      <Position18>
-        <Filename Value="umain.pas"/>
-        <Caret Line="209" Column="70" TopLine="192"/>
-      </Position18>
-      <Position19>
-        <Filename Value="umain.pas"/>
-        <Caret Line="226" Column="68" TopLine="193"/>
-      </Position19>
-      <Position20>
-        <Filename Value="umain.pas"/>
-        <Caret Line="225" Column="68" TopLine="192"/>
-      </Position20>
-      <Position21>
-        <Filename Value="umain.pas"/>
-        <Caret Line="205" Column="57" TopLine="346"/>
-      </Position21>
-      <Position22>
-        <Filename Value="umain.pas"/>
-        <Caret Line="95" Column="70" TopLine="91"/>
-      </Position22>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
