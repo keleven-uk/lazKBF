@@ -57,7 +57,7 @@ begin
   mmoHelp.Append('');
   mmoHelp.Append('');
   mmoHelp.Append(strName);
-  mmoHelp.Append(strCopyRight);
+  mmoHelp.Append(strEmail);
   mmoHelp.Append(strVersion);
 end;
 

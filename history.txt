@@ -1,3 +1,38 @@
+Build 11
+
+commit 596909c43ebc136bcbdebd0d3c3f96b2707c39ef
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Thu Sep 14 22:59:43 2017 +0100
+
+    Renamed all form files from uxxx.pas to formxxx.pas.
+    i.e.  uKlock.pas -> formKlock.pas.
+    
+    So, all source files that contain GUI elements will start with form.
+    All none GUI source files will start with u - a unit file.
+
+    Added uInfo.pas, which contains the following constants
+            strName = my name plus copyright info.
+            strAppName = programme name.
+            strEmail = my email address.
+            strVersion = programme version.
+    
+    These are used in the info screens and main programme.
+
+ uabout.lfm => formabout.lfm     |  34 ++++-----
+ uabout.pas => formabout.pas     |  13 ++--
+ uhelp.lfm => formhelp.lfm       |   0
+ uhelp.pas => formhelp.pas       |  13 ++--
+ ulicence.lfm => formlicence.lfm |   2 +-
+ ulicence.pas => formlicence.pas |  13 ++--
+ umain.lfm => formmain.lfm       |   4 +-
+ umain.pas => formmain.pas       |   8 +--
+ help.txt                        |   4 +-
+ history.txt                     |  58 +++++++++++++--
+ kbf.lpi                         | 155 ++++++++++++++--------------------------
+ kbf.lpr                         |   2 +-
+ uinfo.pas                       |  21 ++++++
+ 13 files changed, 180 insertions(+), 147 deletions(-)
+
 Build 10
 
 commit a6f1ce5c6036227933c72b550fa0cb0bc90975f7

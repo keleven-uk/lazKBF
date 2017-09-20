@@ -1,14 +1,14 @@
 object frmAbout: TfrmAbout
-  Left = 1474
-  Height = 233
-  Top = 134
+  Left = 1471
+  Height = 256
+  Top = 225
   Width = 320
   BorderIcons = [biSystemMenu]
-  BorderStyle = bsSingle
-  Caption = 'About Stub'
-  ClientHeight = 233
+  BorderStyle = bsNone
+  Caption = 'About KBF'
+  ClientHeight = 256
   ClientWidth = 320
-  Constraints.MaxHeight = 233
+  Constraints.MaxHeight = 256
   Constraints.MaxWidth = 320
   Constraints.MinHeight = 233
   Constraints.MinWidth = 320
@@ -122,10 +122,10 @@ object frmAbout: TfrmAbout
   LCLVersion = '1.8.0.4'
   object Panel1: TPanel
     Left = 8
-    Height = 160
+    Height = 184
     Top = 8
     Width = 306
-    ClientHeight = 160
+    ClientHeight = 184
     ClientWidth = 306
     TabOrder = 0
     object lblLazarusVersion: TLabel
@@ -177,13 +177,21 @@ object frmAbout: TfrmAbout
       Caption = 'KBF Version ::'
       ParentColor = False
     end
+    object lblKBCompileDate: TLabel
+      Left = 8
+      Height = 15
+      Top = 160
+      Width = 96
+      Caption = 'lblKBCompileDate'
+      ParentColor = False
+    end
   end
   object Panel2: TPanel
     Left = 8
-    Height = 42
-    Top = 176
+    Height = 44
+    Top = 200
     Width = 306
-    ClientHeight = 42
+    ClientHeight = 44
     ClientWidth = 306
     TabOrder = 1
     object btnAboutExit: TButton

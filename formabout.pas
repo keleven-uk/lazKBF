@@ -16,6 +16,7 @@ type
 
   TfrmAbout = class(TForm)
     btnAboutExit: TButton;
+    lblKBCompileDate: TLabel;
     lblDiskSize: TLabel;
     lblKBFversion: TLabel;
     lblProgrammer: TLabel;
@@ -58,6 +59,7 @@ begin
   lblProgramName.Caption    := strAppName;
   lblProgrammer.Caption     := strName;
   lblLazarusVersion.Caption := format('Built with Lazarus Version :: %s', [lcl_version]);
+  lblKBCompileDate.Caption  := 'KBF built :: 20/09/2017 22:43:01';
   lblKBFversion.Caption     := strVersion;
   lblDiskSize.Caption       := ' Disk Free / Size :: ' + dskFree + ' / ' + dskSize + ' Gbytes';
 end;

@@ -54,7 +54,7 @@ begin
 
   mmoLicence.Append('');
   mmoLicence.Append(strName);
-  mmoLicence.Append(strCopyRight);
+  mmoLicence.Append(strEmail);
   mmoLicence.Append(strVersion);
 end;
 

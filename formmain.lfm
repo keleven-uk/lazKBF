@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 1189
+  Left = 1416
   Height = 601
-  Top = 408
+  Top = 288
   Width = 706
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
@@ -262,13 +262,22 @@ object frmMain: TfrmMain
         Left = 8
         Height = 23
         Top = 8
-        Width = 432
+        Width = 496
         OnAcceptDirectory = DrctryEdtRootAcceptDirectory
         ShowHidden = False
         ButtonWidth = 23
         NumGlyphs = 1
         MaxLength = 0
         TabOrder = 0
+      end
+      object AdvLedSearch: TAdvLed
+        Left = 520
+        Height = 24
+        Top = 7
+        Width = 24
+        Kind = lkGreenLight
+        State = lsOn
+        Blink = False
       end
     end
   end
@@ -332,7 +341,7 @@ object frmMain: TfrmMain
       Top = 200
       Width = 80
       AutoFill = True
-      Caption = 'Select'
+      Caption = 'File Select'
       ChildSizing.LeftRightSpacing = 6
       ChildSizing.TopBottomSpacing = 6
       ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
@@ -353,23 +362,14 @@ object frmMain: TfrmMain
       TabOrder = 1
     end
     object Information: TGroupBox
-      Left = 104
+      Left = 208
       Height = 113
       Top = 200
-      Width = 568
+      Width = 464
       Caption = 'Information'
       ClientHeight = 93
-      ClientWidth = 564
+      ClientWidth = 460
       TabOrder = 2
-      object AdvLedSearch: TAdvLed
-        Left = 32
-        Height = 24
-        Top = 23
-        Width = 24
-        Kind = lkGreenLight
-        State = lsOn
-        Blink = False
-      end
       object lblTaken: TLabel
         Left = 88
         Height = 1
@@ -384,6 +384,32 @@ object frmMain: TfrmMain
         Width = 1
         ParentColor = False
       end
+    end
+    object ChckGrpOptions: TCheckGroup
+      Left = 104
+      Height = 113
+      Top = 200
+      Width = 96
+      AutoFill = True
+      Caption = 'Delete Options'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      ClientHeight = 93
+      ClientWidth = 92
+      Items.Strings = (
+        'Use Recycle'
+        'Confirm'
+      )
+      TabOrder = 3
+      Data = {
+        020000000202
+      }
     end
   end
   object mnuMain: TMainMenu
