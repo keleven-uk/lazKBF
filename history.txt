@@ -1,3 +1,45 @@
+Build 12
+
+commit 83dad406e56488b56c3597c2a6f7325b570892d0
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Wed Sep 20 22:58:56 2017 +0100
+
+    There was a slight bug with empty directories.  To make them stand out
+    in the listbox, I appended them with Empty DIR.  This made it fail when
+    trying to find the directory again and delete it.  Added a function to
+    remove this sub string from the beginning of directory entries.  This
+    function is then called by the delete and pop-op info procedures.
+    
+    Also, amended the delete procedure to delete to recycle bin if desired.
+    This can be chosen from a check box on the front screen.
+    
+    Also, added a checkbox to show the progress screen for deletions.
+    
+    Also, added a LED control which flashed green while searching.
+    
+    Also, cleaned up code in frmmain.pas.
+    
+    Amended uinfo.pas to hold version, application name and me in variables.
+    
+    Amended the Help, About & Licence form to use these variables.
+
+    Currently
+    861 lines of source code.
+    369 statements
+    19.7% comments
+
+ formabout.lfm   |  32 +++--
+ formabout.pas   |   2 +
+ formhelp.pas    |   2 +-
+ formlicence.pas |   2 +-
+ formmain.lfm    |  58 ++++++---
+ formmain.pas    | 380 +++++++++++++++++++++++++++++++++-----------------------
+ help.txt        |  12 +-
+ history.txt     |  35 ++++++
+ kbf.lpi         | 158 ++++++++++++++++++-----
+ uinfo.pas       |  39 +++++-
+ 10 files changed, 497 insertions(+), 223 deletions(-)
+
 Build 11
 
 commit 596909c43ebc136bcbdebd0d3c3f96b2707c39ef

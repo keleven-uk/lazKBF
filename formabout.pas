@@ -7,7 +7,7 @@ unit formAbout;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, StdCtrls,
   LCLVersion, ExtCtrls, uInfo;
 
 type
@@ -16,6 +16,8 @@ type
 
   TfrmAbout = class(TForm)
     btnAboutExit: TButton;
+    Image1: TImage;
+    lblContact: TLabel;
     lblKBCompileDate: TLabel;
     lblDiskSize: TLabel;
     lblKBFversion: TLabel;
@@ -52,16 +54,23 @@ procedure TfrmAbout.FormCreate(Sender: TObject);
 var
   dskSize: string;
   dskFree: string;
+
 begin
   dskFree := FloatToStrF(DiskFree(0) / 1073741824, ffFixed, 3, 2);
   dskSize := FloatToStrF(DiskSize(0) / 1073741824, ffFixed, 3, 2);
 
-  lblProgramName.Caption    := strAppName;
-  lblProgrammer.Caption     := strName;
-  lblLazarusVersion.Caption := format('Built with Lazarus Version :: %s', [lcl_version]);
-  lblKBCompileDate.Caption  := 'KBF built :: 20/09/2017 22:43:01';
-  lblKBFversion.Caption     := strVersion;
-  lblDiskSize.Caption       := ' Disk Free / Size :: ' + dskFree + ' / ' + dskSize + ' Gbytes';
+  {$ifdef WIN32}
+    lblLazarusVersion.Caption := format('Built with 32 bit Lazarus Version :: %s', [lcl_version]);
+  {$else}
+    lblLazarusVersion.Caption := format('Built with 64 bit Lazarus Version :: %s', [lcl_version]);
+  {$endif}
+
+  lblProgramName.Caption := appName;
+  lblProgrammer.Caption := myName;
+  lblContact.Caption := myEmail;
+  lblKBCompileDate.Caption := 'KBF built :: 20/09/2017 22:43:01';
+  lblKBFversion.Caption := appVersion;
+  lblDiskSize.Caption := ' Disk Free / Size :: ' + dskFree + ' / ' + dskSize + ' Gbytes';
 end;
 
 end.

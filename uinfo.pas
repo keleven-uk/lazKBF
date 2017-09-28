@@ -5,7 +5,7 @@ unit uInfo;
 
   Kill Bothersome Files - kills those bothersome files, that get in the way.
 
-  KBF Build Version :: 12 - Built at - 20/09/2017 22:43:01
+  KBF Build Version :: 13 - Built at - 20/09/2017 22:43:01
 
 
 
@@ -31,7 +31,7 @@ unit uInfo;
 }
 
 
-{  Defines some constants, that are used in the info forms.  }
+{  Defines some constants, that are used in the Application.  }
 
 {$mode objfpc}{$H+}
 
@@ -40,11 +40,18 @@ interface
 uses
   Classes, SysUtils;
 
-CONST
-  strName    = 'Kevin Scott (c) 2012 - 2017.' ;
-  strAppName = ' KBF ';
-  strEmail   = 'kbf<at>keleven<dot>co<dot>uk';
-  strVersion = 'KBF Build Version :: 12' ;
+const
+  myName = 'Kevin Scott (c) 2012 - 2017.';
+  appName = ' KBF ';
+  myEmail = 'kbf<at>keleven<dot>co<dot>uk';
+  appVersion = 'KBF Build Version :: 13';
+                                             //  constants used in TfrmMain.FileSizeToHumanReadableString
+  OneKB = Int64(1024);
+  OneMB = Int64(1024) * OneKB;
+  OneGB = Int64(1024) * OneMB;
+  OneTB = Int64(1024) * OneGB;
+  OnePB = Int64(1024) * OneTB;
+  fmt = '#.###';
 
 implementation
 

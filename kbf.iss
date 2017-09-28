@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "KBF"
-#define MyAppVersion "9"
+#define MyAppVersion "13"
 #define MyAppPublisher "Keleven"
 #define MyAppURL "www.keleven.co.uk"
 #define MyAppExeName "kbf.exe"

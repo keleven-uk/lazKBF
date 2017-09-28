@@ -8,7 +8,7 @@ unit formLicence;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, StdCtrls,
   ExtCtrls, uInfo;
 
 type
@@ -53,9 +53,9 @@ begin
   end;
 
   mmoLicence.Append('');
-  mmoLicence.Append(strName);
-  mmoLicence.Append(strEmail);
-  mmoLicence.Append(strVersion);
+  mmoLicence.Append(myName);
+  mmoLicence.Append(myEmail);
+  mmoLicence.Append(appVersion);
 end;
 
 procedure TfrmLicence.btnLicenceExitClick(Sender: TObject);

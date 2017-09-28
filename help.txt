@@ -30,4 +30,4 @@ WARNING
 .::. This program permanently deletes files - does not use the recycle bin [I don't know that bit yet]. .::.
 
 erm,  It does now delete to the recycle bin - thanks to http://forum.lazarus-ide.org/index.php?topic=12288.0.
-Although, still a problem with directories.
+

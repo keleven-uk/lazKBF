@@ -8,7 +8,7 @@ unit formHelp;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, StdCtrls,
   ExtCtrls, uInfo;
 
 type
@@ -56,9 +56,9 @@ begin
 
   mmoHelp.Append('');
   mmoHelp.Append('');
-  mmoHelp.Append(strName);
-  mmoHelp.Append(strEmail);
-  mmoHelp.Append(strVersion);
+  mmoHelp.Append(myName);
+  mmoHelp.Append(myEmail);
+  mmoHelp.Append(appVersion);
 end;
 
 procedure TfrmHelp.btnhelpExitClick(Sender: TObject);
