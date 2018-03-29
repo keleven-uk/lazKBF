@@ -7,6 +7,8 @@ unit formMain;
 
   See uInfo.pas for program detail and licence information.
 
+  KBF needs the extra components - Industrialstuff & BGRAcontrols.
+  Both available via the Online Package manager.
 }
 
 {$mode objfpc}{$H+}
@@ -83,7 +85,7 @@ var
   frmMain: TfrmMain;
   aborting: boolean;    //  true if aborting.
   searching: boolean;   //  true if search being performed.
-  filesSize: longint;   //  used to hold the total size of all files.
+  filesSize: int64;     //  used to hold the total size of all files.
   noOfFiles: longint;   //  used to hold the total number of files.
   noOfDirs: longint;    //  used to hold the total number of directories.
 
@@ -451,7 +453,7 @@ var
   filesInDir: TStringList;
 
 begin
-  if ChckGrpChoice.Checked[11] then
+  if ChckGrpChoice.Checked[13] then
   begin
 
     // process all user events, like clicking on the button
@@ -493,17 +495,23 @@ begin
   fname := FileIterator.FileInfo.Name;             //  file name only, no path.
   flExt := ExtractFileExt(fname);
 
-  if ChckGrpChoice.Checked[0] and (fname = 'Thumbs.db') then addFile := True;
-  if ChckGrpChoice.Checked[1] and (flExt = '.nfo') then addFile := True;
-  if ChckGrpChoice.Checked[2] and (flExt = '.m3u') then addFile := True;
+  if ChckGrpChoice.Checked[0] and (flExt = '.nfo') then addFile := True;
+  if ChckGrpChoice.Checked[1] and (flExt = '.m3u') then addFile := True;
+  if ChckGrpChoice.Checked[2] and (flExt = '.m3u8') then addFile := True;
   if ChckGrpChoice.Checked[3] and (flExt = '.tmp') then addFile := True;
   if ChckGrpChoice.Checked[4] and (flExt = '.bac') then addFile := True;
   if ChckGrpChoice.Checked[5] and (flExt = '.log') then addFile := True;
   if ChckGrpChoice.Checked[6] and (flExt = '.jpg') then addFile := True;
   if ChckGrpChoice.Checked[7] and (flExt = '.bmp') then addFile := True;
   if ChckGrpChoice.Checked[8] and (flExt = '.png') then addFile := True;
-  if ChckGrpChoice.Checked[9] and (flExt = '.txt') then addFile := True;
-  if ChckGrpChoice.Checked[10] and (AnsiLastChar(flExt) = '~') then addFile := True;
+  if ChckGrpChoice.Checked[9] and (flExt = '.png') then addFile := True;
+  if ChckGrpChoice.Checked[10] and (flExt = '.txt') then addFile := True;
+  if ChckGrpChoice.Checked[11] and (flExt = '.cue') then addFile := True;
+  if ChckGrpChoice.Checked[12] and (flExt = '.bac') then addFile := True;
+  if ChckGrpChoice.Checked[12] and (flExt = '.bak') then addFile := True;
+  if ChckGrpChoice.Checked[13] and (flExt = '.url') then addFile := True;
+  if ChckGrpChoice.Checked[14] and (fname = 'Thumbs.db') then addFile := True;
+  if ChckGrpChoice.Checked[15] and (AnsiLastChar(flExt) = '~') then addFile := True;
 
   if addFile then
   begin

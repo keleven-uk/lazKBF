@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 1196
-  Height = 601
+  Left = 1194
+  Height = 634
   Top = 153
   Width = 706
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'KBF'
-  ClientHeight = 581
+  ClientHeight = 614
   ClientWidth = 706
   Icon.Data = {
     3615000000000100020010100000000020006804000026000000202000000000
@@ -183,11 +183,11 @@ object frmMain: TfrmMain
   Menu = mnuMain
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '1.8.0.4'
+  LCLVersion = '1.8.0.6'
   object stsBrInfo: TStatusBar
     Left = 0
     Height = 23
-    Top = 558
+    Top = 591
     Width = 706
     Panels = <    
       item
@@ -204,10 +204,10 @@ object frmMain: TfrmMain
   end
   object Panel1: TPanel
     Left = 10
-    Height = 192
+    Height = 240
     Top = 16
     Width = 686
-    ClientHeight = 192
+    ClientHeight = 240
     ClientWidth = 686
     TabOrder = 1
     object btnKill: TButton
@@ -243,7 +243,7 @@ object frmMain: TfrmMain
     object btnExit: TButton
       Left = 597
       Height = 25
-      Top = 152
+      Top = 208
       Width = 75
       Caption = 'Exit'
       OnClick = btnExitClick
@@ -283,7 +283,7 @@ object frmMain: TfrmMain
   end
   object ChckGrpChoice: TCheckGroup
     Left = 24
-    Height = 104
+    Height = 160
     Top = 88
     Width = 560
     AutoFill = True
@@ -296,41 +296,46 @@ object frmMain: TfrmMain
     ChildSizing.ShrinkVertical = crsScaleChilds
     ChildSizing.Layout = cclLeftToRightThenTopToBottom
     ChildSizing.ControlsPerLine = 3
-    ClientHeight = 84
+    ClientHeight = 140
     ClientWidth = 556
     Columns = 3
     Items.Strings = (
-      'Thumbs.db'
       '.nfo'
       '.m3u'
+      '.m3u8'
       '.tmp'
       '.bac'
       '.log'
       '.jpg'
       '.bmp'
       '.png'
+      '.gif'
       '.txt'
+      '.cue'
+      '.bac[k]'
+      '.url'
+      'Thumbs.db'
       'VI backup files'
       'Empty Directories'
     )
     TabOrder = 2
     Data = {
-      0C000000020202020202020202020202
+      110000000202020202020202020202020202020202
     }
   end
   object Panel2: TPanel
     Left = 10
-    Height = 328
-    Top = 216
+    Height = 320
+    Top = 264
     Width = 686
-    ClientHeight = 328
+    ClientHeight = 320
     ClientWidth = 686
     TabOrder = 3
     object ChckLstBxFiles: TCheckListBox
       Left = 16
       Height = 184
       Top = 8
-      Width = 659
+      Width = 656
       ItemHeight = 0
       OnDblClick = ChckLstBxFilesDblClick
       TabOrder = 0

@@ -1,44 +1,97 @@
+Build 14
+
+Added the removal of .m3u8, .txt .cue .bak, .url & Thumbs.db files.
+
+Currently
+907 lines of source code.
+422 statements
+20.4% comments
+
+
+Build 13
+
+commit 5bb999fb7d4be865e6de10cfaa4f1f46f8164dde
+Author: Kevin Scott <lazKBF@keleven.co.uk>
+Date:   Thu Sep 28 22:32:17 2017 +0100
+
+Ran all source through JEDI code formatter.
+Added to general comments.
+ 
+[mainFrom.pas]
+Added a function to display the filesize in a Human readable format.
+Cleaned up the code in several places where nested if .. then exits.
+    
+[formAbout.pas]
+Amended, so that is knows if it was compiled in either 32 or 64 bit mode.
+Added a powered by lazarus badge.
+    
+[uInfor.pas]
+Added constants used by the FileSizeToHumanReadableString function in
+mainForm.pas.
+
+Currently
+899 lines of source code.
+404 statements
+20.4% comments
+
+README.md       |  15 +-
+formabout.lfm   | 511 +++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+formabout.pas   |  23 ++-
+formhelp.lfm    |  28 ++--
+formhelp.pas    |   8 +-
+formlicence.lfm |  22 +--
+formlicence.pas |   8 +-
+formmain.lfm    | 145 ++--------------
+formmain.pas    | 412 ++++++++++++++++++++++++---------------------
+help.txt        |   2 +-
+history.txt     |  42 +++++
+kbf.iss         |   2 +-
+kbf.lpi         | 178 ++++----------------
+lazKBF.smproj   | Bin 8419 -> 11533 bytes
+uinfo.pas       |  21 ++-
+15 files changed, 888 insertions(+), 529 deletions(-)
+
 Build 12
 
 commit 83dad406e56488b56c3597c2a6f7325b570892d0
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Wed Sep 20 22:58:56 2017 +0100
 
-    There was a slight bug with empty directories.  To make them stand out
-    in the listbox, I appended them with Empty DIR.  This made it fail when
-    trying to find the directory again and delete it.  Added a function to
-    remove this sub string from the beginning of directory entries.  This
-    function is then called by the delete and pop-op info procedures.
+There was a slight bug with empty directories.  To make them stand out
+in the listbox, I appended them with Empty DIR.  This made it fail when
+trying to find the directory again and delete it.  Added a function to
+remove this sub string from the beginning of directory entries.  This
+function is then called by the delete and pop-op info procedures.
     
-    Also, amended the delete procedure to delete to recycle bin if desired.
-    This can be chosen from a check box on the front screen.
+Also, amended the delete procedure to delete to recycle bin if desired.
+This can be chosen from a check box on the front screen.
     
-    Also, added a checkbox to show the progress screen for deletions.
+Also, added a checkbox to show the progress screen for deletions.
     
-    Also, added a LED control which flashed green while searching.
+Also, added a LED control which flashed green while searching.
     
-    Also, cleaned up code in frmmain.pas.
+Also, cleaned up code in frmmain.pas.
     
-    Amended uinfo.pas to hold version, application name and me in variables.
+Amended uinfo.pas to hold version, application name and me in variables.
     
-    Amended the Help, About & Licence form to use these variables.
+Amended the Help, About & Licence form to use these variables.
 
-    Currently
-    861 lines of source code.
-    369 statements
-    19.7% comments
+Currently
+861 lines of source code.
+369 statements
+19.7% comments
 
- formabout.lfm   |  32 +++--
- formabout.pas   |   2 +
- formhelp.pas    |   2 +-
- formlicence.pas |   2 +-
- formmain.lfm    |  58 ++++++---
- formmain.pas    | 380 +++++++++++++++++++++++++++++++++-----------------------
- help.txt        |  12 +-
- history.txt     |  35 ++++++
- kbf.lpi         | 158 ++++++++++++++++++-----
- uinfo.pas       |  39 +++++-
- 10 files changed, 497 insertions(+), 223 deletions(-)
+formabout.lfm   |  32 +++--
+formabout.pas   |   2 +
+formhelp.pas    |   2 +-
+formlicence.pas |   2 +-
+formmain.lfm    |  58 ++++++---
+formmain.pas    | 380 +++++++++++++++++++++++++++++++++-----------------------
+help.txt        |  12 +-
+history.txt     |  35 ++++++
+kbf.lpi         | 158 ++++++++++++++++++-----
+uinfo.pas       |  39 +++++-
+10 files changed, 497 insertions(+), 223 deletions(-)
 
 Build 11
 
@@ -46,34 +99,34 @@ commit 596909c43ebc136bcbdebd0d3c3f96b2707c39ef
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Thu Sep 14 22:59:43 2017 +0100
 
-    Renamed all form files from uxxx.pas to formxxx.pas.
-    i.e.  uKlock.pas -> formKlock.pas.
+Renamed all form files from uxxx.pas to formxxx.pas.
+i.e.  uKlock.pas -> formKlock.pas.
     
-    So, all source files that contain GUI elements will start with form.
-    All none GUI source files will start with u - a unit file.
+So, all source files that contain GUI elements will start with form.
+All none GUI source files will start with u - a unit file.
 
-    Added uInfo.pas, which contains the following constants
-            strName = my name plus copyright info.
-            strAppName = programme name.
-            strEmail = my email address.
-            strVersion = programme version.
+Added uInfo.pas, which contains the following constants
+        strName = my name plus copyright info.
+        strAppName = programme name.
+        strEmail = my email address.
+        strVersion = programme version.
     
-    These are used in the info screens and main programme.
+These are used in the info screens and main programme.
 
- uabout.lfm => formabout.lfm     |  34 ++++-----
- uabout.pas => formabout.pas     |  13 ++--
- uhelp.lfm => formhelp.lfm       |   0
- uhelp.pas => formhelp.pas       |  13 ++--
- ulicence.lfm => formlicence.lfm |   2 +-
- ulicence.pas => formlicence.pas |  13 ++--
- umain.lfm => formmain.lfm       |   4 +-
- umain.pas => formmain.pas       |   8 +--
- help.txt                        |   4 +-
- history.txt                     |  58 +++++++++++++--
- kbf.lpi                         | 155 ++++++++++++++--------------------------
- kbf.lpr                         |   2 +-
- uinfo.pas                       |  21 ++++++
- 13 files changed, 180 insertions(+), 147 deletions(-)
+uabout.lfm => formabout.lfm     |  34 ++++-----
+uabout.pas => formabout.pas     |  13 ++--
+uhelp.lfm => formhelp.lfm       |   0
+uhelp.pas => formhelp.pas       |  13 ++--
+ulicence.lfm => formlicence.lfm |   2 +-
+ulicence.pas => formlicence.pas |  13 ++--
+umain.lfm => formmain.lfm       |   4 +-
+umain.pas => formmain.pas       |   8 +--
+help.txt                        |   4 +-
+history.txt                     |  58 +++++++++++++--
+kbf.lpi                         | 155 ++++++++++++++--------------------------
+kbf.lpr                         |   2 +-
+uinfo.pas                       |  21 ++++++
+13 files changed, 180 insertions(+), 147 deletions(-)
 
 Build 10
 
@@ -81,31 +134,31 @@ commit a6f1ce5c6036227933c72b550fa0cb0bc90975f7
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Wed Sep 13 23:15:21 2017 +0100
 
-    Added LED - which flashes green when searching and steady red when not.
+Added LED - which flashes green when searching and steady red when not.
     
-    Amended installer to install either 32 bit or 64 bit, depending upon
-    target system.
+Amended installer to install either 32 bit or 64 bit, depending upon target system.
     
-    Added config file for SourceMonitor.
-    Currently
-    732 lines of source code.
-    330 statements
-    9.7% comments
+Added config file for SourceMonitor.
 
- .gitignore    |   5 +-
- history.txt   |  24 ++-
- kbf.iss       |  36 +++--
- kbf.lpi       | 143 +++++++-----------
- kbf.lpr       |   3 +-
- lazKBF.smproj | Bin 0 -> 8419 bytes
- uabout.pas    |  14 +-
- uhelp.pas     |   6 +-
- ulicence.pas  |   6 +-
- umain.lfm     | 125 ++++++++++------
- umain.pas     | 467 ++++++++++++++++++++++++++++++++--------------------------
- uoptions.lfm  |   3 +-
- uoptions.pas  |   9 +-
- 13 files changed, 455 insertions(+), 386 deletions(-)
+Currently
+732 lines of source code.
+330 statements
+9.7% comments
+
+.gitignore    |   5 +-
+history.txt   |  24 ++-
+kbf.iss       |  36 +++--
+kbf.lpi       | 143 +++++++-----------
+kbf.lpr       |   3 +-
+lazKBF.smproj | Bin 0 -> 8419 bytes
+uabout.pas    |  14 +-
+uhelp.pas     |   6 +-
+ulicence.pas  |   6 +-
+umain.lfm     | 125 ++++++++++------
+umain.pas     | 467 ++++++++++++++++++++++++++++++++--------------------------
+uoptions.lfm  |   3 +-
+uoptions.pas  |   9 +-
+13 files changed, 455 insertions(+), 386 deletions(-)
 
 Build 9
 
@@ -113,19 +166,19 @@ commit 8ce58f9d3b600d5648d827dce8126b3226939eb2
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Wed Aug 30 22:33:36 2017 +0100
 
-    Recompiled to check for Lazarus 1.8.0.4
+Recompiled to check for Lazarus 1.8.0.4
 
-    Added the option to search for and delete image files [.jpg, .bmp & .png].
+Added the option to search for and delete image files [.jpg, .bmp & .png].
     
-    Added the option to search for and delete empty directories.
+Added the option to search for and delete empty directories.
 
- README.md   |  23 +++++++
- history.txt | 204 ++++++++++++++++++++++++++++++++++++++++++++-------------
- info.txt    |  15 -----
- kbf.lpi     | 212 ++++++++++++++++++++++++++++++++++++++----------------------
- umain.lfm   |  72 +++++++++++----------
- umain.pas   |  77 ++++++++++++++++++----
- 6 files changed, 419 insertions(+), 184 deletions(-)
+README.md   |  23 +++++++
+history.txt | 204 ++++++++++++++++++++++++++++++++++++++++++++-------------
+info.txt    |  15 -----
+kbf.lpi     | 212 ++++++++++++++++++++++++++++++++++++++----------------------
+umain.lfm   |  72 +++++++++++----------
+umain.pas   |  77 ++++++++++++++++++----
+6 files changed, 419 insertions(+), 184 deletions(-)
 
 Build 8
 
@@ -133,20 +186,20 @@ commit 9c70bffc4eb9370d47ff038d8c039caed7b802d6
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:59:04 2016 +0100
 
-    Recompiled to check for Lazarus 1.0 RC1 [although showing 0.9.31 in about box].
+Recompiled to check for Lazarus 1.0 RC1 [although showing 0.9.31 in about box].
     
-    Also turned off generate debugging info GB in linking options.
-    This creates a lot smaller executables.
+Also turned off generate debugging info GB in linking options.
+This creates a lot smaller executables.
     
-    Amended install scripts, to give a choice to install sources.
+Amended install scripts, to give a choice to install sources.
 
- kbf.iss    | 35 +++++++++++++++++------
- kbf.lpi    | 97 +++++++++++++++++++++++++++++++++-----------------------------
- uabout.lfm | 26 ++++++++---------
- uabout.pas |  2 +-
- umain.lfm  |  7 +++--
- umain.pas  | 13 +++++++--
- 6 files changed, 107 insertions(+), 73 deletions(-)
+kbf.iss    | 35 +++++++++++++++++------
+kbf.lpi    | 97 +++++++++++++++++++++++++++++++++-----------------------------
+uabout.lfm | 26 ++++++++---------
+uabout.pas |  2 +-
+umain.lfm  |  7 +++--
+umain.pas  | 13 +++++++--
+6 files changed, 107 insertions(+), 73 deletions(-)
 
 Build 7
 
@@ -154,23 +207,23 @@ commit fd33df4894b67da8e649a336159fc6124eeab995
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:57:00 2016 +0100
 
-    Recompiled to check for Lazarus 0.9.30.4.
+Recompiled to check for Lazarus 0.9.30.4.
     
-    Changed icon to one with transparent background [thanks zach]
+Changed icon to one with transparent background [thanks zach]
 
- history.txt  |   8 ++
- info.txt     |   8 +-
- kbf.ico      | Bin 3262 -> 5430 bytes
- kbf.iss      |   3 +-
- kbf.lpi      |  12 +--
- uabout.lfm   |  26 +++---
- uabout.pas   |   2 +-
- uhelp.lfm    |   2 +-
- uhelp.pas    |   2 +-
- ulicence.lfm |   2 +-
- ulicence.pas |   2 +-
- umain.lfm    | 271 +++++++++++++++++++++++++++++++++++++----------------------
- 12 files changed, 207 insertions(+), 131 deletions(-)
+history.txt  |   8 ++
+info.txt     |   8 +-
+kbf.ico      | Bin 3262 -> 5430 bytes
+kbf.iss      |   3 +-
+kbf.lpi      |  12 +--
+uabout.lfm   |  26 +++---
+uabout.pas   |   2 +-
+uhelp.lfm    |   2 +-
+uhelp.pas    |   2 +-
+ulicence.lfm |   2 +-
+ulicence.pas |   2 +-
+umain.lfm    | 271 +++++++++++++++++++++++++++++++++++++----------------------
+12 files changed, 207 insertions(+), 131 deletions(-)
 
 Build 6
 
@@ -178,21 +231,21 @@ commit 4ec5e5ca66ab6a8b44157b120759b2b8bcd06c81
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:54:53 2016 +0100
 
-    Added help.txt & kbf.iss [install script].
+Added help.txt & kbf.iss [install script].
     
-    Added pop-up notifier to display results of search.
+Added pop-up notifier to display results of search.
 
- help.txt     |   2 +-
- history.txt  |  37 ++++++++++++++++++
- info.txt     |   6 +--
- kbf.iss      |  52 ++++++++++++++++++++++++
- kbf.lpi      |  94 ++++++++++++++++++++++++--------------------
- uabout.pas   |   2 +-
- uhelp.pas    |   2 +-
- ulicence.pas |   2 +-
- umain.lfm    | 126 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
- umain.pas    |  90 ++++++++++++++++++++++++++++++------------
- 10 files changed, 335 insertions(+), 78 deletions(-)
+help.txt     |   2 +-
+history.txt  |  37 ++++++++++++++++++
+info.txt     |   6 +--
+kbf.iss      |  52 ++++++++++++++++++++++++
+kbf.lpi      |  94 ++++++++++++++++++++++++--------------------
+uabout.pas   |   2 +-
+uhelp.pas    |   2 +-
+ulicence.pas |   2 +-
+umain.lfm    | 126 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+umain.pas    |  90 ++++++++++++++++++++++++++++++------------
+10 files changed, 335 insertions(+), 78 deletions(-)
 
 Build 5
 
@@ -200,19 +253,19 @@ commit 72b92cc26ad74d97786595fc642468865fd11b8f
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:53:01 2016 +0100
 
-    Added file attributes to file info.
+Added file attributes to file info.
     
-    File info now displayed when to entry is double clicked.
+File info now displayed when to entry is double clicked.
 
- help.txt     |  2 ++
- info.txt     |  6 ++---
- kbf.lpi      | 84 ++++++++++++++++++++++++++++++------------------------------
- uabout.pas   |  2 +-
- uhelp.pas    |  2 +-
- ulicence.pas |  2 +-
- umain.lfm    |  2 +-
- umain.pas    | 36 +++++++++++++++++++++++---
- 8 files changed, 84 insertions(+), 52 deletions(-)
+help.txt     |  2 ++
+info.txt     |  6 ++---
+kbf.lpi      | 84 ++++++++++++++++++++++++++++++------------------------------
+uabout.pas   |  2 +-
+uhelp.pas    |  2 +-
+ulicence.pas |  2 +-
+umain.lfm    |  2 +-
+umain.pas    | 36 +++++++++++++++++++++++---
+8 files changed, 84 insertions(+), 52 deletions(-)
 
 Build 4
 
@@ -220,23 +273,23 @@ commit 8e32705655fb1d2ced9b3160bc3c0e42467e2167
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:50:06 2016 +0100
 
-    Select all, none and individual files tested okay.
+Select all, none and individual files tested okay.
     
-    All delete file logic finished and tested okay.
+All delete file logic finished and tested okay.
     
-    File info window now implemented when a file is clicked in the list box.
+File info window now implemented when a file is clicked in the list box.
     
-    Help text file amended.
+Help text file amended.
 
- help.txt     |  13 ++++-
- info.txt     |   6 +-
- kbf.lpi      | 109 ++++++++++++++++++++----------------
- uabout.pas   |   2 +-
- uhelp.pas    |   2 +-
- ulicence.pas |   2 +-
- umain.lfm    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++------
- umain.pas    | 159 +++++++++++++++++++++++++++++++++++++++++++++++-----
- 8 files changed, 384 insertions(+), 87 deletions(-)
+help.txt     |  13 ++++-
+info.txt     |   6 +-
+kbf.lpi      | 109 ++++++++++++++++++++----------------
+uabout.pas   |   2 +-
+uhelp.pas    |   2 +-
+ulicence.pas |   2 +-
+umain.lfm    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++------
+umain.pas    | 159 +++++++++++++++++++++++++++++++++++++++++++++++-----
+8 files changed, 384 insertions(+), 87 deletions(-)
 
 Build 3
 
@@ -244,14 +297,14 @@ commit 01ce48ee23470cab56bd060efb522869e88b0544
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:47:48 2016 +0100
 
-    Search works according to files selected in the choice group box.
+Search works according to files selected in the choice group box.
     
-    Search & Clear button coded.
+Search & Clear button coded.
 
- kbf.lpi   | 64 +++++++++++++++++++++++++++++++++++++++++++++++++++++----------
- umain.lfm | 10 ++++++----
- umain.pas | 49 ++++++++++++++++++++++++++++++++++++++++++------
- 3 files changed, 103 insertions(+), 20 deletions(-)
+kbf.lpi   | 64 +++++++++++++++++++++++++++++++++++++++++++++++++++++----------
+umain.lfm | 10 ++++++----
+umain.pas | 49 ++++++++++++++++++++++++++++++++++++++++++------
+3 files changed, 103 insertions(+), 20 deletions(-)
 
 Build 2
 
@@ -259,20 +312,20 @@ commit 726cf3844e84660b4d985cee5dc9c8d5bf56af8e
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:45:56 2016 +0100
 
-    GUI finished.
+GUI finished.
     
-    Basic search logic finished.
+Basic search logic finished.
 
- help.txt     |  19 ++++----
- info.txt     |   8 ++--
- kbf.lpi      |  94 ++++++++++++++++++++++++++++++++-------
- uabout.lfm   |  19 ++++----
- uhelp.lfm    |   4 +-
- uhelp.pas    |   2 +-
- umain.lfm    | 143 ++++++++++++++++++++++++++++++++++++++++++++++++++++-------
- umain.pas    |  72 ++++++++++++++++++++++++++++--
- uoptions.lfm |   4 +-
- 9 files changed, 301 insertions(+), 64 deletions(-)
+help.txt     |  19 ++++----
+info.txt     |   8 ++--
+kbf.lpi      |  94 ++++++++++++++++++++++++++++++++-------
+uabout.lfm   |  19 ++++----
+uhelp.lfm    |   4 +-
+uhelp.pas    |   2 +-
+umain.lfm    | 143 ++++++++++++++++++++++++++++++++++++++++++++++++++++-------
+umain.pas    |  72 ++++++++++++++++++++++++++++--
+uoptions.lfm |   4 +-
+9 files changed, 301 insertions(+), 64 deletions(-)
 
 Build 1
 
@@ -280,25 +333,25 @@ commit f30a36d5a86d901a0c82e9a3ac9d1017b9240152
 Author: Kevin Scott <lazKBF@keleven.co.uk>
 Date:   Mon Oct 17 20:43:24 2016 +0100
 
-    Initial import.
+Initial import.
     
-    Renamed all files from stub.
+Renamed all files from stub.
 
- .gitignore                     |  33 ++
- GNU GENERAL PUBLIC LICENSE.txt | 674 +++++++++++++++++++++++++++++++++++++++++
- help.txt                       |  17 ++
- info.txt                       |  15 +
- kbf.ico                        | Bin 0 -> 3262 bytes
- kbf.lpi                        | 194 ++++++++++++
- kbf.lpr                        |  24 ++
- uabout.lfm                     | 204 +++++++++++++
- uabout.pas                     |  62 ++++
- uhelp.lfm                      | 159 ++++++++++
- uhelp.pas                      |  66 ++++
- ulicence.lfm                   | 159 ++++++++++
- ulicence.pas                   |  63 ++++
- umain.lfm                      | 177 +++++++++++
- umain.pas                      |  86 ++++++
- uoptions.lfm                   |  42 +++
- uoptions.pas                   |  47 +++
- 17 files changed, 2022 insertions(+)
+.gitignore                     |  33 ++
+GNU GENERAL PUBLIC LICENSE.txt | 674 +++++++++++++++++++++++++++++++++++++++++
+help.txt                       |  17 ++
+info.txt                       |  15 +
+kbf.ico                        | Bin 0 -> 3262 bytes
+kbf.lpi                        | 194 ++++++++++++
+kbf.lpr                        |  24 ++
+uabout.lfm                     | 204 +++++++++++++
+uabout.pas                     |  62 ++++
+uhelp.lfm                      | 159 ++++++++++
+uhelp.pas                      |  66 ++++
+ulicence.lfm                   | 159 ++++++++++
+ulicence.pas                   |  63 ++++
+umain.lfm                      | 177 +++++++++++
+umain.pas                      |  86 ++++++
+uoptions.lfm                   |  42 +++
+uoptions.pas                   |  47 +++
+17 files changed, 2022 insertions(+)

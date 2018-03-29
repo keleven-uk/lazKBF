@@ -15,9 +15,10 @@
     </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
-      <BuildNr Value="8"/>
+      <MajorVersionNr Value="1"/>
+      <BuildNr Value="14"/>
       <Language Value="0809"/>
-      <StringTable Comments="made with Lazarus." CompanyName="keleven" FileDescription="Kill those Bothersome Files." InternalName="kbf" LegalCopyright="Kevin Scott (c) - 2012" OriginalFilename="kbf" ProductName="KBF" ProductVersion="8"/>
+      <StringTable Comments="made with Lazarus." CompanyName="keleven" FileDescription="Kill those Bothersome Files." InternalName="kbf" LegalCopyright="Kevin Scott (c) - 2012" OriginalFilename="kbf" ProductName="KBF" ProductVersion="14"/>
     </VersionInfo>
     <BuildModes Count="3" Active="Release">
       <Item1 Name="Default" Default="True"/>
@@ -125,7 +126,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="59" Y="10"/>
-        <UsageCount Value="104"/>
+        <UsageCount Value="106"/>
       </Unit0>
       <Unit1>
         <Filename Value="formmain.pas"/>
@@ -134,9 +135,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="formMain"/>
-        <TopLine Value="303"/>
-        <CursorPos X="3" Y="303"/>
-        <UsageCount Value="104"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="485"/>
+        <CursorPos X="88" Y="511"/>
+        <UsageCount Value="106"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -145,7 +147,7 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="15" Y="2"/>
-        <UsageCount Value="102"/>
+        <UsageCount Value="104"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit2>
       <Unit3>
@@ -155,13 +157,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="formAbout"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="39"/>
-        <CursorPos Y="57"/>
-        <UsageCount Value="102"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="63" Y="40"/>
+        <UsageCount Value="104"/>
       </Unit3>
       <Unit4>
         <Filename Value="formhelp.pas"/>
@@ -177,7 +175,7 @@
           <EditorIndex Value="-1"/>
           <CursorPos X="59" Y="11"/>
         </ExtraEditor1>
-        <UsageCount Value="98"/>
+        <UsageCount Value="100"/>
       </Unit4>
       <Unit5>
         <Filename Value="uoptions.pas"/>
@@ -199,7 +197,7 @@
         <UnitName Value="formLicence"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="59" Y="11"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="90"/>
       </Unit6>
       <Unit7>
         <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
@@ -223,9 +221,11 @@
         <Filename Value="uinfo.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uInfo"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="60" Y="34"/>
-        <UsageCount Value="42"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="22"/>
+        <CursorPos X="77" Y="51"/>
+        <UsageCount Value="44"/>
+        <Loaded Value="True"/>
       </Unit10>
       <Unit11>
         <Filename Value="C:\lazarus64\fpc\3.0.4\source\rtl\win\sysutils.pp"/>
@@ -234,16 +234,7 @@
         <UsageCount Value="10"/>
       </Unit11>
     </Units>
-    <JumpHistory Count="2" HistoryIndex="1">
-      <Position1>
-        <Filename Value="formabout.pas"/>
-        <Caret Line="10" Column="16"/>
-      </Position1>
-      <Position2>
-        <Filename Value="formabout.pas"/>
-        <Caret Line="65" Column="60" TopLine="41"/>
-      </Position2>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>
