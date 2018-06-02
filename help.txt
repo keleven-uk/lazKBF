@@ -31,3 +31,4 @@ WARNING
 
 erm,  It does now delete to the recycle bin - thanks to http://forum.lazarus-ide.org/index.php?topic=12288.0.
 
+The software source can be downloaded from - https://github.com/keleven-uk/lazKBF

@@ -13,6 +13,7 @@ uses
 {$R *.res}
 
 begin
+  Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TfrmAbout, frmAbout);

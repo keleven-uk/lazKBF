@@ -25,33 +25,34 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
-    AdvLedSearch: TAdvLed;
+    AdvLedSearch  : TAdvLed;
     ChckGrpOptions: TCheckGroup;
-    lblInfo: TLabel;
-    lblTaken: TLabel;
-    btnKill: TButton;
-    btnSearch: TButton;
-    btnClear: TButton;
-    btnExit: TButton;
-    ChckGrpChoice: TCheckGroup;
+    lblInfo       : TLabel;
+    lblTaken      : TLabel;
+    btnKill       : TButton;
+    btnSearch     : TButton;
+    btnClear      : TButton;
+    btnExit       : TButton;
+    ChckGrpChoice : TCheckGroup;
     ChckLstBxFiles: TCheckListBox;
-    DrctryEdtRoot: TDirectoryEdit;
-    Information: TGroupBox;
-    GrpBxRoot: TGroupBox;
-    mnuLicence: TMenuItem;
-    mnuItmHelp: TMenuItem;
-    mnuItmAbout: TMenuItem;
-    mnuItmExit: TMenuItem;
-    mnuhelp: TMenuItem;
-    mnuFile: TMenuItem;
-    mnuMain: TMainMenu;
-    Panel1: TPanel;
-    Panel2: TPanel;
-    PpNtfrFiles: TPopupNotifier;
-    RdGrpSelect: TRadioGroup;
-    stsBrInfo: TStatusBar;
-    TmrMain: TTimer;
-    TmrInfo: TTimer;
+    DrctryEdtRoot : TDirectoryEdit;
+    Information   : TGroupBox;
+    GrpBxRoot     : TGroupBox;
+    mnuLicence    : TMenuItem;
+    mnuItmHelp    : TMenuItem;
+    mnuItmAbout   : TMenuItem;
+    mnuItmExit    : TMenuItem;
+    mnuhelp       : TMenuItem;
+    mnuFile       : TMenuItem;
+    mnuMain       : TMainMenu;
+    Panel1        : TPanel;
+    Panel2        : TPanel;
+    PpNtfrFiles   : TPopupNotifier;
+    RdGrpSelect   : TRadioGroup;
+    stsBrInfo     : TStatusBar;
+    TmrMain       : TTimer;
+    TmrInfo       : TTimer;
+
     procedure btnClearClick(Sender: TObject);
     procedure btnExitClick(Sender: TObject);
     procedure btnKillClick(Sender: TObject);
@@ -82,12 +83,12 @@ type
   end;
 
 var
-  frmMain: TfrmMain;
-  aborting: boolean;    //  true if aborting.
-  searching: boolean;   //  true if search being performed.
-  filesSize: int64;     //  used to hold the total size of all files.
-  noOfFiles: longint;   //  used to hold the total number of files.
-  noOfDirs: longint;    //  used to hold the total number of directories.
+  frmMain  : TfrmMain;
+  aborting : boolean;    //  true if aborting.
+  searching: boolean;    //  true if search being performed.
+  filesSize: int64;      //  used to hold the total size of all files.
+  noOfFiles: longint;    //  used to hold the total number of files.
+  noOfDirs : longint;    //  used to hold the total number of directories.
 
   fileSearch: TFileSearcher;
 
@@ -109,29 +110,29 @@ procedure TfrmMain.setDefaults;
 begin
   ChckGrpOptions.Checked[0] := True;       //  default to delete to recycle bin.
   ChckGrpOptions.Checked[1] := True;       //  default to confirm deletes.
-  ChckGrpChoice.Checked[0] := True;        //  default to Thumbs.db.
-  DrctryEdtRoot.Directory := '';           //  clear directory search.
-  DrctryEdtRoot.Enabled := True;           //  turn off directory search.
-  ChckGrpChoice.Enabled := True;
-  RdGrpSelect.ItemIndex := 1;              //  default to Select None.
-  RdGrpSelect.Enabled := False;            //  turn off select group.
-  PpNtfrFiles.Visible := False;            //  turn off pop up.
-  AdvLedSearch.Blink := False;             //  set deafults for LED.
-  AdvLedSearch.State := lsOn;
-  AdvLedSearch.Kind := lkRedLight;
-  btnSearch.Enabled := False;              //  turn off search button till needed.
-  Application.Title := appName;            //  set application title.
-  btnClear.Enabled := False;               //  turn off clear button till needed.
-  lblTaken.Caption := '';                  //  Clear labels.
-  lblInfo.Caption := '';
-  btnKill.Enabled := False;                //  turn off kill button till needed.
-  frmMain.Caption := appName;              //  set form title.
+  ChckGrpChoice.Checked[0]  := True;       //  default to Thumbs.db.
+  DrctryEdtRoot.Directory   := '';         //  clear directory search.
+  DrctryEdtRoot.Enabled     := True;       //  turn off directory search.
+  ChckGrpChoice.Enabled     := True;
+  RdGrpSelect.ItemIndex     := 1;          //  default to Select None.
+  RdGrpSelect.Enabled       := False;      //  turn off select group.
+  PpNtfrFiles.Visible       := False;      //  turn off pop up.
+  AdvLedSearch.Blink        := False;      //  set deafults for LED.
+  AdvLedSearch.State        := lsOn;
+  AdvLedSearch.Kind         := lkRedLight;
+  btnSearch.Enabled         := False;      //  turn off search button till needed.
+  Application.Title         := appName;    //  set application title.
+  btnClear.Enabled          := False;      //  turn off clear button till needed.
+  lblTaken.Caption          := '';         //  Clear labels.
+  lblInfo.Caption           := '';
+  btnKill.Enabled           := False;      //  turn off kill button till needed.
+  frmMain.Caption           := appName;    //  set form title.
 
-  aborting := False;
+  aborting  := False;
   searching := False;
   filesSize := 0;
   noOfFiles := 0;
-  noOfDirs := 0;
+  noOfDirs  := 0;
 end;
 
 procedure TfrmMain.btnExitClick(Sender: TObject);
@@ -144,8 +145,8 @@ procedure TfrmMain.btnKillClick(Sender: TObject);
 
 begin
   RdGrpSelect.Enabled := False;
-  btnClear.Enabled := False;
-  btnKill.Enabled := False;
+  btnClear.Enabled    := False;
+  btnKill.Enabled     := False;
 
   deleteFiles;
   setDefaults;
@@ -157,10 +158,10 @@ function TfrmMain.cleanDirectoryName(fileName: string): string;
    They need the first bit stripping off before they are passed to the delete proc.
 }
 var
-  fileLength: integer;                             //  length of filename.
+  fileLength: integer;                                 //  length of filename.
 begin
-  fileLength := length(fileName);                  //  length of filename.
-  Result := AnsiMidStr(fileName, 14, fileLength);  //  start of sub string is hard coded.
+  fileLength := length(fileName);                      //  length of filename.
+  Result     := AnsiMidStr(fileName, 14, fileLength);  //  start of sub string is hard coded.
 end;
 
 procedure TfrmMain.deleteFiles;
@@ -175,10 +176,10 @@ procedure TfrmMain.deleteFiles;
 }
 
 var
-  f: integer = 0;
-  count : integer;         //  total number of files - total entries in list box.
-  killPos: integer = 0;    //  kill at position
-  fileName: string;        //  filename
+  f       : integer = 0;
+  count   : integer;         //  total number of files - total entries in list box.
+  killPos : integer = 0;     //  kill at position
+  fileName: string;          //  filename
 
 begin
 
@@ -203,10 +204,10 @@ begin
   end;    //  for
 
   stsBrInfo.Panels.Items[2].Text := ' KBF :: Finished Killing';
-  Application.Title := ' KBF';
-  frmMain.Caption := ' KBF';
-  btnClear.Caption := 'Reset';
-  btnClear.Enabled := True;
+  Application.Title              := ' KBF';
+  frmMain.Caption                := ' KBF';
+  btnClear.Caption               := 'Reset';
+  btnClear.Enabled               := True;
 end;
 
 procedure TfrmMain.deleteToRycycle(aFile: string);
@@ -226,10 +227,10 @@ var
 begin
   with fileOpStruct do
   begin
-    Wnd := Application.MainForm.Handle;
-    wFunc := FO_DELETE;
-    pFrom := PChar(aFile + #0#0);
-    pTo := nil;
+    Wnd           := Application.MainForm.Handle;
+    wFunc         := FO_DELETE;
+    pFrom         := PChar(aFile + #0#0);
+    pTo           := nil;
     hNameMappings := nil;
 
     if ChckGrpOptions.Checked[0] then
@@ -285,10 +286,10 @@ var
 begin
   DrctryEdtRoot.Enabled := False;
   ChckGrpChoice.Enabled := False;
-  btnSearch.Enabled := False;
-  AdvLedSearch.Blink := True;                 //  Start flashing the LED.
-  AdvLedSearch.Kind := lkGreenLight;
-  btnClear.Enabled := True;
+  btnSearch.Enabled     := False;
+  AdvLedSearch.Blink    := True;                 //  Start flashing the LED.
+  AdvLedSearch.Kind     := lkGreenLight;
+  btnClear.Enabled      := True;
 
   dtStart := time;                            //  Start timing.
 
@@ -297,7 +298,7 @@ begin
   dtEnd := time;                              //  End timing.
 
   AdvLedSearch.Blink := False;                //  reset LED
-  AdvLedSearch.Kind := lkRedLight;
+  AdvLedSearch.Kind  := lkRedLight;
   AdvLedSearch.State := lsOn;
 
   lblTaken.Caption := 'Search took :[mins:secs:milli]]:  ' + FormatDateTime('nn:ss:zzz', dtEnd - dtStart);
@@ -311,11 +312,11 @@ procedure TfrmMain.ChckLstBxFilesDblClick(Sender: TObject);
 
 var
   message: string;                  //  message to display.
-  fname: string;                    //  filename
-  fpos: integer;
-  fsize: string;
-  fdate: string;
-  fattr: longint;
+  fname  : string;                  //  filename
+  fpos   : integer;
+  fsize  : string;
+  fdate  : string;
+  fattr  : longint;
 begin
 
   if (ChckLstBxFiles.Items.Count <> 0) then
@@ -323,12 +324,12 @@ begin
     PpNtfrFiles.ShowAtPos(100, 100);
     PpNtfrFiles.Title := 'File Info';
 
-    fpos := ChckLstBxFiles.ItemIndex;
+    fpos  := ChckLstBxFiles.ItemIndex;
     fname := ChckLstBxFiles.Items.Strings[fpos];
 
     if AnsiStartsStr('Empty', fname) then
-    begin                                          //  entry is a directory.
-      fname := cleanDirectoryName(fname);          //  Strip off the empty dir tag.
+    begin                                            //  entry is a directory.
+      fname   := cleanDirectoryName(fname);          //  Strip off the empty dir tag.
       message := format('Directory :: %s. ', [fname]);
       message := message + LineEnding + '';
       message := message + LineEnding + ' Empty Directory';
@@ -347,17 +348,17 @@ begin
 
     if PpNtfrFiles.Visible = False then
     begin
-      TmrInfo.Enabled := True;
-      PpNtfrFiles.Text := message;
+      TmrInfo.Enabled     := True;
+      PpNtfrFiles.Text    := message;
       PpNtfrFiles.Visible := True;
     end
     else
     begin                                                //  toggle popup.visable - performs a refresh.
-      TmrInfo.Enabled := False;                          //  switch off and then on time to reset time interval.
+      TmrInfo.Enabled     := False;                      //  switch off and then on time to reset time interval.
       PpNtfrFiles.Visible := False;
-      PpNtfrFiles.Text := message;
+      PpNtfrFiles.Text    := message;
       PpNtfrFiles.Visible := True;
-      TmrInfo.Enabled := True;
+      TmrInfo.Enabled     := True;
     end;
 
   end;  //  if ChckLstBxFiles.Items.Count <> 0
@@ -373,18 +374,12 @@ begin
 
   if fattr <> -1 then
   begin
-    if (fattr and faReadOnly) <> 0 then
-      Result := 'File is ReadOnly';
-    if (fattr and faHidden) <> 0 then
-      Result := 'File is hidden';
-    if (fattr and faSysFile) <> 0 then
-      Result := 'File is a system file';
-    if (fattr and faVolumeID) <> 0 then
-      Result := 'File is a disk label';
-    if (fattr and faArchive) <> 0 then
-      Result := 'File is archive file';
-    if (fattr and faDirectory) <> 0 then
-      Result := 'File is a directory';
+    if (fattr and faReadOnly)  <> 0 then Result := 'File is ReadOnly';
+    if (fattr and faHidden)    <> 0 then Result := 'File is hidden';
+    if (fattr and faSysFile)   <> 0 then Result := 'File is a system file';
+    if (fattr and faVolumeID)  <> 0 then Result := 'File is a disk label';
+    if (fattr and faArchive)   <> 0 then Result := 'File is archive file';
+    if (fattr and faDirectory) <> 0 then Result := 'File is a directory';
   end
   else
     Result := '';
@@ -422,9 +417,9 @@ begin
   stsBrInfo.Panels.Items[2].Text := 'Walking ' + dir + ' now, Sir!';
 
   //  actual search
-  searching := True;
-  fileSearch := TFileSearcher.Create;
-  fileSearch.OnFileFound := @fileFound;
+  searching                   := True;
+  fileSearch                  := TFileSearcher.Create;
+  fileSearch.OnFileFound      := @fileFound;
   fileSearch.OnDirectoryFound := @DirectoryFound;
   fileSearch.Search(dir, '*.*', True);
   fileSearch.Free;
@@ -438,8 +433,8 @@ begin
   else
   begin
     stsBrInfo.Panels.Items[2].Text := 'Finished walking';
-    RdGrpSelect.Enabled := True;
-    btnKill.Enabled := True;
+    RdGrpSelect.Enabled            := True;
+    btnKill.Enabled                := True;
   end;
 end;
 
@@ -453,13 +448,12 @@ var
   filesInDir: TStringList;
 
 begin
-  if ChckGrpChoice.Checked[13] then
+  if ChckGrpChoice.Checked[16] then
   begin
 
     // process all user events, like clicking on the button
     Application.ProcessMessages;
-    if Aborting or Application.Terminated then
-      closeApp;  //  exit clicked
+    if Aborting or Application.Terminated then closeApp;  //  exit clicked
 
     filesInDir := FindAllFiles(FileIterator.FileName, '', True);
 
@@ -482,8 +476,8 @@ procedure TfrmMain.fileFound(FileIterator: TFileIterator);
 
 var
   AddFile: boolean;
-  fname: string;
-  flExt: String;
+  fname  : string;
+  flExt  : String;
 
 begin
   // process all user events, like clicking on the button
@@ -492,32 +486,32 @@ begin
     closeApp;  //  exit clicked
 
   addFile := False;
-  fname := FileIterator.FileInfo.Name;             //  file name only, no path.
-  flExt := ExtractFileExt(fname);
+  fname   := FileIterator.FileInfo.Name;             //  file name only, no path.
+  flExt   := ExtractFileExt(fname);
 
-  if ChckGrpChoice.Checked[0] and (flExt = '.nfo') then addFile := True;
-  if ChckGrpChoice.Checked[1] and (flExt = '.m3u') then addFile := True;
-  if ChckGrpChoice.Checked[2] and (flExt = '.m3u8') then addFile := True;
-  if ChckGrpChoice.Checked[3] and (flExt = '.tmp') then addFile := True;
-  if ChckGrpChoice.Checked[4] and (flExt = '.bac') then addFile := True;
-  if ChckGrpChoice.Checked[5] and (flExt = '.log') then addFile := True;
-  if ChckGrpChoice.Checked[6] and (flExt = '.jpg') then addFile := True;
-  if ChckGrpChoice.Checked[7] and (flExt = '.bmp') then addFile := True;
-  if ChckGrpChoice.Checked[8] and (flExt = '.png') then addFile := True;
-  if ChckGrpChoice.Checked[9] and (flExt = '.png') then addFile := True;
-  if ChckGrpChoice.Checked[10] and (flExt = '.txt') then addFile := True;
-  if ChckGrpChoice.Checked[11] and (flExt = '.cue') then addFile := True;
-  if ChckGrpChoice.Checked[12] and (flExt = '.bac') then addFile := True;
-  if ChckGrpChoice.Checked[12] and (flExt = '.bak') then addFile := True;
-  if ChckGrpChoice.Checked[13] and (flExt = '.url') then addFile := True;
-  if ChckGrpChoice.Checked[14] and (fname = 'Thumbs.db') then addFile := True;
-  if ChckGrpChoice.Checked[15] and (AnsiLastChar(flExt) = '~') then addFile := True;
+  if ChckGrpChoice.Checked[0]  and (flExt = '.nfo')           then addFile := True;
+  if ChckGrpChoice.Checked[1]  and (flExt = '.m3u')           then addFile := True;
+  if ChckGrpChoice.Checked[2]  and (flExt = '.m3u8')          then addFile := True;
+  if ChckGrpChoice.Checked[3]  and (flExt = '.tmp')           then addFile := True;
+  if ChckGrpChoice.Checked[4]  and (flExt = '.bac')           then addFile := True;
+  if ChckGrpChoice.Checked[5]  and (flExt = '.log')           then addFile := True;
+  if ChckGrpChoice.Checked[6]  and (flExt = '.jpg')           then addFile := True;
+  if ChckGrpChoice.Checked[7]  and (flExt = '.bmp')           then addFile := True;
+  if ChckGrpChoice.Checked[8]  and (flExt = '.png')           then addFile := True;
+  if ChckGrpChoice.Checked[9]  and (flExt = '.png')           then addFile := True;
+  if ChckGrpChoice.Checked[10] and (flExt = '.txt')           then addFile := True;
+  if ChckGrpChoice.Checked[11] and (flExt = '.cue')           then addFile := True;
+  if ChckGrpChoice.Checked[12] and (flExt = '.bac')           then addFile := True;
+  if ChckGrpChoice.Checked[12] and (flExt = '.bak')           then addFile := True;
+  if ChckGrpChoice.Checked[13] and (flExt = '.url')           then addFile := True;
+  if ChckGrpChoice.Checked[14] and (fname = 'Thumbs.db')      then addFile := True;
+  if ChckGrpChoice.Checked[15] and (RightStr(flExt, 1) = '~') then addFile := True;
 
   if addFile then
   begin
     ChckLstBxFiles.Items.Add(FileIterator.FileName);           //  full path name.
-    noOfFiles := ChckLstBxFiles.Items.Count - noOfDirs;
-    filesSize := filesSize + FileIterator.FileInfo.Size;
+    noOfFiles       := ChckLstBxFiles.Items.Count - noOfDirs;
+    filesSize       := filesSize + FileIterator.FileInfo.Size;
     lblInfo.Caption := format(' KBF :: Found %d files, %d Empty Directories :: %s bytes [%s]',
       [noOfFiles, noOfDirs, FormatFloat('#,###', filesSize), FileSizeToHumanReadableString(filesSize)]);
   end;
@@ -584,13 +578,13 @@ end;
 procedure TfrmMain.TmrInfoTimer(Sender: TObject);
 begin
   PpNtfrFiles.Visible := False;
-  TmrInfo.Enabled := False;
+  TmrInfo.Enabled     := False;
 end;
 
 procedure TfrmMain.closeApp;
 begin
   Searching := False;
-  Aborting := True;
+  Aborting  := True;
   Close;
 end;
 

@@ -183,7 +183,7 @@ object frmMain: TfrmMain
   Menu = mnuMain
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '1.8.0.6'
+  LCLVersion = '1.8.4.0'
   object stsBrInfo: TStatusBar
     Left = 0
     Height = 23

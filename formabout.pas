@@ -15,18 +15,19 @@ type
   { TfrmAbout }
 
   TfrmAbout = class(TForm)
-    btnAboutExit: TButton;
-    Image1: TImage;
-    lblContact: TLabel;
-    lblKBCompileDate: TLabel;
-    lblDiskSize: TLabel;
-    lblKBFversion: TLabel;
-    lblProgrammer: TLabel;
+    btnAboutExit         : TButton;
+    Image1               : TImage;
+    lblContact           : TLabel;
+    lblKBCompileDate     : TLabel;
+    lblDiskSize          : TLabel;
+    lblKBFversion        : TLabel;
+    lblProgrammer        : TLabel;
     lblProgramDescription: TLabel;
-    lblProgramName: TLabel;
-    lblLazarusVersion: TLabel;
-    Panel1: TPanel;
-    Panel2: TPanel;
+    lblProgramName       : TLabel;
+    lblLazarusVersion    : TLabel;
+    Panel1               : TPanel;
+    Panel2               : TPanel;
+
     procedure btnAboutExitClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -65,12 +66,12 @@ begin
     lblLazarusVersion.Caption := format('Built with 64 bit Lazarus Version :: %s', [lcl_version]);
   {$endif}
 
-  lblProgramName.Caption := appName;
-  lblProgrammer.Caption := myName;
-  lblContact.Caption := myEmail;
+  lblProgramName.Caption   := appName;
+  lblProgrammer.Caption    := myName;
+  lblContact.Caption       := myEmail;
   lblKBCompileDate.Caption := 'KBF built :: 20/09/2017 22:43:01';
-  lblKBFversion.Caption := appVersion;
-  lblDiskSize.Caption := ' Disk Free / Size :: ' + dskFree + ' / ' + dskSize + ' Gbytes';
+  lblKBFversion.Caption    := appVersion;
+  lblDiskSize.Caption      := ' Disk Free / Size :: ' + dskFree + ' / ' + dskSize + ' Gbytes';
 end;
 
 end.

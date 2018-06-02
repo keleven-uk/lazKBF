@@ -41,17 +41,17 @@ uses
   Classes, SysUtils;
 
 const
-  myName = 'Kevin Scott (c) 2012 - 2017.';
-  appName = ' KBF ';
-  myEmail = 'kbf<at>keleven<dot>co<dot>uk';
-  appVersion = 'KBF Build Version :: 13';
+  myName     = 'Kevin Scott (c) 2012 - 2018.';
+  appName    = ' KBF ';
+  myEmail    = 'kbf<at>keleven<dot>co<dot>uk';
+  appVersion = 'KBF Build Version :: 15';
                                              //  constants used in TfrmMain.FileSizeToHumanReadableString
   OneKB = Int64(1024);
   OneMB = Int64(1024) * OneKB;
   OneGB = Int64(1024) * OneMB;
   OneTB = Int64(1024) * OneGB;
   OnePB = Int64(1024) * OneTB;
-  fmt = '#.###';
+  fmt   = '#.###';
 
 implementation
 

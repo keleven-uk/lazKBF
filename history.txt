@@ -1,3 +1,17 @@
+Build 15
+
+Switched on Hi-Dpi aware.
+
+Bug corrected : if DirecdtoryFound, check box should be number 16.
+Bug corrected : Vi backup files not working, corrected RightStr statement.
+
+Compiled with Lazarus 1.8.4.
+
+Currently
+907 lines of source code.
+422 statements
+20.4% comments
+
 Build 14
 
 Added the removal of .m3u8, .txt .cue .bak, .url & Thumbs.db files.
@@ -23,7 +37,7 @@ Cleaned up the code in several places where nested if .. then exits.
     
 [formAbout.pas]
 Amended, so that is knows if it was compiled in either 32 or 64 bit mode.
-Added a powered by lazarus badge.
+Added a powered by Lazarus badge.
     
 [uInfor.pas]
 Added constants used by the FileSizeToHumanReadableString function in
@@ -34,22 +48,6 @@ Currently
 404 statements
 20.4% comments
 
-README.md       |  15 +-
-formabout.lfm   | 511 +++++++++++++++++++++++++++++++++++++++++++++++++++++++-
-formabout.pas   |  23 ++-
-formhelp.lfm    |  28 ++--
-formhelp.pas    |   8 +-
-formlicence.lfm |  22 +--
-formlicence.pas |   8 +-
-formmain.lfm    | 145 ++--------------
-formmain.pas    | 412 ++++++++++++++++++++++++---------------------
-help.txt        |   2 +-
-history.txt     |  42 +++++
-kbf.iss         |   2 +-
-kbf.lpi         | 178 ++++----------------
-lazKBF.smproj   | Bin 8419 -> 11533 bytes
-uinfo.pas       |  21 ++-
-15 files changed, 888 insertions(+), 529 deletions(-)
 
 Build 12
 
@@ -81,17 +79,6 @@ Currently
 369 statements
 19.7% comments
 
-formabout.lfm   |  32 +++--
-formabout.pas   |   2 +
-formhelp.pas    |   2 +-
-formlicence.pas |   2 +-
-formmain.lfm    |  58 ++++++---
-formmain.pas    | 380 +++++++++++++++++++++++++++++++++-----------------------
-help.txt        |  12 +-
-history.txt     |  35 ++++++
-kbf.lpi         | 158 ++++++++++++++++++-----
-uinfo.pas       |  39 +++++-
-10 files changed, 497 insertions(+), 223 deletions(-)
 
 Build 11
 
@@ -113,20 +100,6 @@ Added uInfo.pas, which contains the following constants
     
 These are used in the info screens and main programme.
 
-uabout.lfm => formabout.lfm     |  34 ++++-----
-uabout.pas => formabout.pas     |  13 ++--
-uhelp.lfm => formhelp.lfm       |   0
-uhelp.pas => formhelp.pas       |  13 ++--
-ulicence.lfm => formlicence.lfm |   2 +-
-ulicence.pas => formlicence.pas |  13 ++--
-umain.lfm => formmain.lfm       |   4 +-
-umain.pas => formmain.pas       |   8 +--
-help.txt                        |   4 +-
-history.txt                     |  58 +++++++++++++--
-kbf.lpi                         | 155 ++++++++++++++--------------------------
-kbf.lpr                         |   2 +-
-uinfo.pas                       |  21 ++++++
-13 files changed, 180 insertions(+), 147 deletions(-)
 
 Build 10
 
@@ -145,20 +118,6 @@ Currently
 330 statements
 9.7% comments
 
-.gitignore    |   5 +-
-history.txt   |  24 ++-
-kbf.iss       |  36 +++--
-kbf.lpi       | 143 +++++++-----------
-kbf.lpr       |   3 +-
-lazKBF.smproj | Bin 0 -> 8419 bytes
-uabout.pas    |  14 +-
-uhelp.pas     |   6 +-
-ulicence.pas  |   6 +-
-umain.lfm     | 125 ++++++++++------
-umain.pas     | 467 ++++++++++++++++++++++++++++++++--------------------------
-uoptions.lfm  |   3 +-
-uoptions.pas  |   9 +-
-13 files changed, 455 insertions(+), 386 deletions(-)
 
 Build 9
 
@@ -172,13 +131,6 @@ Added the option to search for and delete image files [.jpg, .bmp & .png].
     
 Added the option to search for and delete empty directories.
 
-README.md   |  23 +++++++
-history.txt | 204 ++++++++++++++++++++++++++++++++++++++++++++-------------
-info.txt    |  15 -----
-kbf.lpi     | 212 ++++++++++++++++++++++++++++++++++++++----------------------
-umain.lfm   |  72 +++++++++++----------
-umain.pas   |  77 ++++++++++++++++++----
-6 files changed, 419 insertions(+), 184 deletions(-)
 
 Build 8
 
@@ -193,13 +145,6 @@ This creates a lot smaller executables.
     
 Amended install scripts, to give a choice to install sources.
 
-kbf.iss    | 35 +++++++++++++++++------
-kbf.lpi    | 97 +++++++++++++++++++++++++++++++++-----------------------------
-uabout.lfm | 26 ++++++++---------
-uabout.pas |  2 +-
-umain.lfm  |  7 +++--
-umain.pas  | 13 +++++++--
-6 files changed, 107 insertions(+), 73 deletions(-)
 
 Build 7
 
@@ -211,19 +156,6 @@ Recompiled to check for Lazarus 0.9.30.4.
     
 Changed icon to one with transparent background [thanks zach]
 
-history.txt  |   8 ++
-info.txt     |   8 +-
-kbf.ico      | Bin 3262 -> 5430 bytes
-kbf.iss      |   3 +-
-kbf.lpi      |  12 +--
-uabout.lfm   |  26 +++---
-uabout.pas   |   2 +-
-uhelp.lfm    |   2 +-
-uhelp.pas    |   2 +-
-ulicence.lfm |   2 +-
-ulicence.pas |   2 +-
-umain.lfm    | 271 +++++++++++++++++++++++++++++++++++++----------------------
-12 files changed, 207 insertions(+), 131 deletions(-)
 
 Build 6
 
@@ -235,17 +167,6 @@ Added help.txt & kbf.iss [install script].
     
 Added pop-up notifier to display results of search.
 
-help.txt     |   2 +-
-history.txt  |  37 ++++++++++++++++++
-info.txt     |   6 +--
-kbf.iss      |  52 ++++++++++++++++++++++++
-kbf.lpi      |  94 ++++++++++++++++++++++++--------------------
-uabout.pas   |   2 +-
-uhelp.pas    |   2 +-
-ulicence.pas |   2 +-
-umain.lfm    | 126 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
-umain.pas    |  90 ++++++++++++++++++++++++++++++------------
-10 files changed, 335 insertions(+), 78 deletions(-)
 
 Build 5
 
@@ -257,15 +178,6 @@ Added file attributes to file info.
     
 File info now displayed when to entry is double clicked.
 
-help.txt     |  2 ++
-info.txt     |  6 ++---
-kbf.lpi      | 84 ++++++++++++++++++++++++++++++------------------------------
-uabout.pas   |  2 +-
-uhelp.pas    |  2 +-
-ulicence.pas |  2 +-
-umain.lfm    |  2 +-
-umain.pas    | 36 +++++++++++++++++++++++---
-8 files changed, 84 insertions(+), 52 deletions(-)
 
 Build 4
 
@@ -281,15 +193,6 @@ File info window now implemented when a file is clicked in the list box.
     
 Help text file amended.
 
-help.txt     |  13 ++++-
-info.txt     |   6 +-
-kbf.lpi      | 109 ++++++++++++++++++++----------------
-uabout.pas   |   2 +-
-uhelp.pas    |   2 +-
-ulicence.pas |   2 +-
-umain.lfm    | 178 +++++++++++++++++++++++++++++++++++++++++++++++++++++------
-umain.pas    | 159 +++++++++++++++++++++++++++++++++++++++++++++++-----
-8 files changed, 384 insertions(+), 87 deletions(-)
 
 Build 3
 
@@ -301,10 +204,6 @@ Search works according to files selected in the choice group box.
     
 Search & Clear button coded.
 
-kbf.lpi   | 64 +++++++++++++++++++++++++++++++++++++++++++++++++++++----------
-umain.lfm | 10 ++++++----
-umain.pas | 49 ++++++++++++++++++++++++++++++++++++++++++------
-3 files changed, 103 insertions(+), 20 deletions(-)
 
 Build 2
 
@@ -316,16 +215,6 @@ GUI finished.
     
 Basic search logic finished.
 
-help.txt     |  19 ++++----
-info.txt     |   8 ++--
-kbf.lpi      |  94 ++++++++++++++++++++++++++++++++-------
-uabout.lfm   |  19 ++++----
-uhelp.lfm    |   4 +-
-uhelp.pas    |   2 +-
-umain.lfm    | 143 ++++++++++++++++++++++++++++++++++++++++++++++++++++-------
-umain.pas    |  72 ++++++++++++++++++++++++++++--
-uoptions.lfm |   4 +-
-9 files changed, 301 insertions(+), 64 deletions(-)
 
 Build 1
 
@@ -337,21 +226,3 @@ Initial import.
     
 Renamed all files from stub.
 
-.gitignore                     |  33 ++
-GNU GENERAL PUBLIC LICENSE.txt | 674 +++++++++++++++++++++++++++++++++++++++++
-help.txt                       |  17 ++
-info.txt                       |  15 +
-kbf.ico                        | Bin 0 -> 3262 bytes
-kbf.lpi                        | 194 ++++++++++++
-kbf.lpr                        |  24 ++
-uabout.lfm                     | 204 +++++++++++++
-uabout.pas                     |  62 ++++
-uhelp.lfm                      | 159 ++++++++++
-uhelp.pas                      |  66 ++++
-ulicence.lfm                   | 159 ++++++++++
-ulicence.pas                   |  63 ++++
-umain.lfm                      | 177 +++++++++++
-umain.pas                      |  86 ++++++
-uoptions.lfm                   |  42 +++
-uoptions.pas                   |  47 +++
-17 files changed, 2022 insertions(+)
