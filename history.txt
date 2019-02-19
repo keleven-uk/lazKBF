@@ -1,3 +1,19 @@
+Build 16
+
+Corrected memory leak in formMain.pas.walkDirectory - filesInDir.Free
+
+Added to formAbout.pas - correct method of obtaining build time and date.
+
+Corrected spelling.
+
+** Compiled with Lazarus V2.0.0.4 **
+
+Currently
+914 lines of source code.
+426 statements
+20.2% 
+
+
 Build 15
 
 Switched on Hi-Dpi aware.

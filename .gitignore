@@ -34,3 +34,6 @@ lib/
 
 # VI backup files.
 *.*~
+
+# memory leak trace file
+heap.trc

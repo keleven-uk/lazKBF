@@ -153,7 +153,7 @@ begin
 end;
 
 function TfrmMain.cleanDirectoryName(fileName: string): string;
-{  Because emptry directories are added to the list box thus,
+{  Because empty directories are added to the list box thus,
    ChckLstBxFiles.Items.Add(format('Empty DIR :: %s', [FileIterator.FileName]));
    They need the first bit stripping off before they are passed to the delete proc.
 }
@@ -167,17 +167,17 @@ end;
 procedure TfrmMain.deleteFiles;
 {  Delete all the checked entries in the list box.
    When an entry is deleted, all the above entries move down. So, if all entries
-   are checked - then the delete is always callat at position 0. That's why the
+   are checked - then the delete is always called at position 0. That's why the
    position p is only incremented at an uncheck entry.
 
-   Because emptry directories are added to the list box thus,
+   Because empty directories are added to the list box thus,
    ChckLstBxFiles.Items.Add(format('Empty DIR :: %s', [FileIterator.FileName]));
    They need the first bit stripping off before they are passed to the delete proc.
 }
 
 var
   f       : integer = 0;
-  count   : integer;         //  total number of files - total entries in list box.
+  count   : integer = 0;     //  total number of files - total entries in list box.
   killPos : integer = 0;     //  kill at position
   fileName: string;          //  filename
 
@@ -211,7 +211,7 @@ begin
 end;
 
 procedure TfrmMain.deleteToRycycle(aFile: string);
-{  Delets files to the Rycycle bin.
+{  Deletes files to the recycle bin.
     Thanks to Lush - http://forum.lazarus-ide.org/index.php?topic=12288.0
 
     FOF_ALLOWUNDO -> moves file to the bin.
@@ -305,7 +305,7 @@ begin
 end;
 
 procedure TfrmMain.ChckLstBxFilesDblClick(Sender: TObject);
-{  Pops up a info meassage when a entry is clicked in the list box.
+{  Pops up a info message when a entry is clicked in the list box.
 
    Assumes entry is a valid filename.
 }
@@ -371,7 +371,6 @@ function TfrmMain.checkATTR(fattr: longint): string;
 }
 
 begin
-
   if fattr <> -1 then
   begin
     if (fattr and faReadOnly)  <> 0 then Result := 'File is ReadOnly';
@@ -407,8 +406,8 @@ end;
 
 procedure TfrmMain.walkDirectory(dir: string);
 {  Walk a directory passed into procedure.
-   All files that match a certain pattern are added to filestore, filestore is declared globably.
-   All emptry directories are aslo added to the filestore, if option selected.
+   All files that match a certain pattern are added to filestore, filestore is declared globally.
+   All empty directories are also added to the filestore, if option selected.
    The pattern in a chosen file extension - from a combo box.
    Does not check if directory exists.
 }
@@ -450,6 +449,7 @@ var
 begin
   if ChckGrpChoice.Checked[16] then
   begin
+    filesInDir := TStringList.Create;
 
     // process all user events, like clicking on the button
     Application.ProcessMessages;
@@ -462,10 +462,13 @@ begin
       noOfDirs += 1;
       ChckLstBxFiles.Items.Add(format('Empty DIR :: %s', [FileIterator.FileName]));
     end;  //  if filesInDir.Count = 0
-  end;    //  if ChckGrpChoice.Checked[11]
+
+    filesInDir.Free;
+  end;    //  if ChckGrpChoice.Checked[16]
 
   lblInfo.Caption := format(' KBF :: Found %d files, %d Empty Directories :: %s bytes [%s]',
     [noOfFiles, noOfDirs, FormatFloat('#,###', filesSize), FileSizeToHumanReadableString(filesSize)]);
+
 end;
 
 procedure TfrmMain.fileFound(FileIterator: TFileIterator);
@@ -493,19 +496,19 @@ begin
   if ChckGrpChoice.Checked[1]  and (flExt = '.m3u')           then addFile := True;
   if ChckGrpChoice.Checked[2]  and (flExt = '.m3u8')          then addFile := True;
   if ChckGrpChoice.Checked[3]  and (flExt = '.tmp')           then addFile := True;
-  if ChckGrpChoice.Checked[4]  and (flExt = '.bac')           then addFile := True;
-  if ChckGrpChoice.Checked[5]  and (flExt = '.log')           then addFile := True;
-  if ChckGrpChoice.Checked[6]  and (flExt = '.jpg')           then addFile := True;
-  if ChckGrpChoice.Checked[7]  and (flExt = '.bmp')           then addFile := True;
+  if ChckGrpChoice.Checked[4]  and (flExt = '.log')           then addFile := True;
+  if ChckGrpChoice.Checked[5]  and (flExt = '.jpg')           then addFile := True;
+  if ChckGrpChoice.Checked[6]  and (flExt = '.bmp')           then addFile := True;
+  if ChckGrpChoice.Checked[7]  and (flExt = '.png')           then addFile := True;
   if ChckGrpChoice.Checked[8]  and (flExt = '.png')           then addFile := True;
-  if ChckGrpChoice.Checked[9]  and (flExt = '.png')           then addFile := True;
-  if ChckGrpChoice.Checked[10] and (flExt = '.txt')           then addFile := True;
-  if ChckGrpChoice.Checked[11] and (flExt = '.cue')           then addFile := True;
-  if ChckGrpChoice.Checked[12] and (flExt = '.bac')           then addFile := True;
-  if ChckGrpChoice.Checked[12] and (flExt = '.bak')           then addFile := True;
-  if ChckGrpChoice.Checked[13] and (flExt = '.url')           then addFile := True;
-  if ChckGrpChoice.Checked[14] and (fname = 'Thumbs.db')      then addFile := True;
-  if ChckGrpChoice.Checked[15] and (RightStr(flExt, 1) = '~') then addFile := True;
+  if ChckGrpChoice.Checked[9]  and (flExt = '.txt')           then addFile := True;
+  if ChckGrpChoice.Checked[10] and (flExt = '.cue')           then addFile := True;
+  if ChckGrpChoice.Checked[11] and (flExt = '.bac')           then addFile := True;
+  if ChckGrpChoice.Checked[11] and (flExt = '.bak')           then addFile := True;
+  if ChckGrpChoice.Checked[12] and (flExt = '.url')           then addFile := True;
+  if ChckGrpChoice.Checked[13] and (fname = 'Thumbs.db')      then addFile := True;
+  if ChckGrpChoice.Checked[14] and (RightStr(flExt, 1) = '~') then addFile := True;
+  if ChckGrpChoice.Checked[15] and (fname = 'desktop.ini')    then addFile := True;
 
   if addFile then
   begin
@@ -520,8 +523,8 @@ end;
 
 function TfrmMain.FileSizeToHumanReadableString(fileSize: Int64): string;
 {  Returns filesize in a human readable form.
-   Does not use ther silly ISO standard unit of Pib, TiB, GiB, MiB & KiB.
-   Used the gold old fashion units of Pib, TB, GB, MB & KB.
+   Does not use their silly ISO standard unit of Pib, TiB, GiB, MiB & KiB.
+   Used the good old fashion units of Pib, TB, GB, MB & KB.
 
    NOTE : constants defined in uInfo.pas
 }

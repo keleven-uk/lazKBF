@@ -1,7 +1,7 @@
 object frmAbout: TfrmAbout
-  Left = 1483
+  Left = 1585
   Height = 444
-  Top = -553
+  Top = 514
   Width = 320
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
@@ -119,7 +119,7 @@ object frmAbout: TfrmAbout
   }
   OnCreate = FormCreate
   Position = poMainFormCenter
-  LCLVersion = '1.8.0.4'
+  LCLVersion = '2.0.0.4'
   object Panel1: TPanel
     Left = 8
     Height = 248
@@ -164,7 +164,7 @@ object frmAbout: TfrmAbout
       Top = 80
       Width = 192
       Alignment = taCenter
-      Caption = 'Kevin Scott  (c) 2012 - 2017'
+      Caption = 'Kevin Scott  (c) 2012 - 2019'
       Font.Height = -16
       ParentColor = False
       ParentFont = False

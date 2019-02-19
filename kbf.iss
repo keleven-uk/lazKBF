@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "lazKBF"
-#define MyAppVersion "15"
+#define MyAppVersion "16"
 #define MyAppPublisher "Keleven"
 #define MyAppURL "www.keleven.co.uk"
 #define MyAppExeName "kbf.exe"
@@ -52,8 +52,8 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 ; installs either klock_x64 or klock_x86 - but names them klock.exe
 [Files]
-Source: "kbf_32.exe"                     ; DestDir: "{app}"; DestName: {#MyAppExeName}; Flags: ignoreversion ; Check: not Is64BitInstallMode
-Source: "kbf_64.exe"                     ; DestDir: "{app}"; DestName: {#MyAppExeName}; Flags: ignoreversion ; Check: Is64BitInstallMode
+Source: "kbf_Release 32-bit.exe"         ; DestDir: "{app}"; DestName: {#MyAppExeName}; Flags: ignoreversion ; Check: not Is64BitInstallMode
+Source: "kbf_Release 64 bit.exe"         ; DestDir: "{app}"; DestName: {#MyAppExeName}; Flags: ignoreversion ; Check: Is64BitInstallMode
 Source: "GNU GENERAL PUBLIC LICENSE.txt" ; DestDir: "{app}"; Flags: ignoreversion
 Source: "help.txt"                       ; DestDir: "{app}"; Flags: ignoreversion
 Source: "history.txt"                    ; DestDir: "{app}"; Flags: ignoreversion

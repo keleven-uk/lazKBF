@@ -14,8 +14,8 @@ type
 
   TfrmOptions = class(TForm)
     btnExit: TButton;
-    Panel1: TPanel;
-    Panel2: TPanel;
+    Panel1 : TPanel;
+    Panel2 : TPanel;
     procedure btnExitClick(Sender: TObject);
   private
     { private declarations }

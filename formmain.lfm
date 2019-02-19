@@ -183,7 +183,7 @@ object frmMain: TfrmMain
   Menu = mnuMain
   OnCreate = FormCreate
   Position = poScreenCenter
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '2.0.0.3'
   object stsBrInfo: TStatusBar
     Left = 0
     Height = 23
@@ -304,7 +304,6 @@ object frmMain: TfrmMain
       '.m3u'
       '.m3u8'
       '.tmp'
-      '.bac'
       '.log'
       '.jpg'
       '.bmp'
@@ -316,6 +315,7 @@ object frmMain: TfrmMain
       '.url'
       'Thumbs.db'
       'VI backup files'
+      'desktop.ini'
       'Empty Directories'
     )
     TabOrder = 2
